@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图标</title>
+    <link rel="stylesheet" type="text/css" href="../../common/highlight/style.css">
+    <link rel="stylesheet" href="icon/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="../common/main.css">
+    <style>
+        body{
+            padding: 10px;
+            background: #FFF;
+        }
+        h1{
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 40px;
+        }
+        h2{
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 35px;
+        }
+        p{
+            font-size: 14px;
+            color: #5e6d82;
+            line-height: 1.5em;
+        }
+        .case > *{
+            margin-left: 30px;
+        }
+        .box{
+            display: inline-block;
+            width: 160px;
+            height: 80px;
+            margin: 10px;
+            padding: 20px 0 0 20px;
+            border-radius: 5px;
+            color:#fff;
+        }
+        .code{
+            opacity: .69;
+        }
+        .iconfont{
+            font-size: 30px;
+        }
+        .btn-iconfont{
+            font-size: 12px;
+        }
+        .icon_lists {
+            width: 100% !important;
+            overflow: hidden;
+        }
+        .dib-box .dib {
+            display: inline-block;
+            vertical-align: top;
+            font-size: 12px;
+            letter-spacing: normal;
+            word-spacing: normal;
+            line-height: inherit;
+        }
+        .icon_lists li {
+            width: 100px;
+            margin-bottom: 10px;
+            margin-right: 20px;
+            text-align: center;
+            list-style: none !important;
+            cursor: default;
+        }
+        .icon_lists .icon {
+            display: block;
+            height: 100px;
+            line-height: 100px;
+            font-size: 42px;
+            margin: 10px auto;
+            color: #333;
+            -webkit-transition: font-size 0.25s linear, width 0.25s linear;
+            -moz-transition: font-size 0.25s linear, width 0.25s linear;
+            transition: font-size 0.25s linear, width 0.25s linear;
+        }
+        .icon_lists .icon:hover {
+            font-size: 100px;
+        }
+        .content{
+            padding: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="step">
+            <h1>一、安装</h1>
+            <p>目前公司主要使用阿里图标， 它提供可缩放矢量图标,它可以被定制大小、颜色、阴影以及任何可以用CSS的样式。<a href="https://www.iconfont.cn/" target="_blank">前往官网</a></p>
+            <h2>第一步：拷贝项目下面生成的 @font-face</h2>
+            <pre><code class="language-css" v-html="fontFace"></code></pre>
+            <h2>第二步：定义使用 iconfont 的样式</h2>
+            <pre><code class="language-css" v-html="iconfont"></code></pre>
+            <h2>第三步：挑选相应图标并获取字体编码，应用于页面</h2>
+            <pre><code class="language-html" v-html="iconfontHtml"></code></pre>
+        </div>
+        <div class="step">
+            <h1>二、示例</h1>
+            <div class="case">
+                <span class="iconfont">&#xe612;</span>
+                <span class="iconfont" style="color: yellow;">&#xe61a;</span>
+                <span class="iconfont" style="color: red;">&#xe697;</span>
+                <button class="orangeBtn"><span class="iconfont btn-iconfont">&#xe608;</span> 查询</button>
+            </div>    
+            <pre><code class="language-html" v-html="caseHtml"></code></pre>       
+        </div>
+        <div class="step">
+            <h1>三、图标演示</h1>
+            <div class="content unicode">
+                <ul class="icon_lists dib-box">
+                    <li class="dib" v-for="item in boxList" :key="item.icon">
+                      <span class="icon iconfont" v-html="item.icon"></span>
+                      <div class="name">{{item.name}}</div>
+                      <div class="code-name" v-html="item.code"></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="../../common/vue/vue.js"></script>
+    <script type="text/javascript" src="icon/iconfont.js"></script>
+    <script type="text/javascript" src="../../common/highlight/prismJS.js"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data(){
+                return{
+                    boxList:[{icon:"&#xe601;",name:"setup-outlined",code:"&amp;#xe601;"},
+                             {icon:"&#xe602;",name:"approval-outlined",code:"&amp;#xe602;"},
+                             {icon:"&#xe603;",name:"calendar-outlined",code:"&amp;#xe603;"},
+                             {icon:"&#xe604;",name:"download-outlined",code:"&amp;#xe604;"},
+                             {icon:"&#xe605;",name:"more-outlined",code:"&amp;#xe605;"},
+                             {icon:"&#xe606;",name:"delete-outlined",code:"&amp;#xe606;"},
+                             {icon:"&#xe607;",name:"read-outlined",code:"&amp;#xe607;"},
+                             {icon:"&#xe608;",name:"search-outlined",code:"&amp;#xe608;"},
+                             {icon:"&#xe609;",name:"position-outlined",code:"&amp;#xe609;"},
+                             {icon:"&#xe60a;",name:"upload-outlined",code:"&amp;#xe60a;"},
+                             {icon:"&#xe60b;",name:"eyeopen-outlined",code:"&amp;#xe60b;"},
+                             {icon:"&#xe60c;",name:"view-outlined",code:"&amp;#xe60c;"},
+                             {icon:"&#xe60d;",name:"eyeblind-outlined",code:"&amp;#xe60d;"},
+                             {icon:"&#xe60e;",name:"zoomout-outlined",code:"&amp;#xe60e;"},
+                             {icon:"&#xe60f;",name:"edit-outlined",code:"&amp;#xe60f;"},
+                             {icon:"&#xe610;",name:"filter-outlined",code:"&amp;#xe610;"},
+                             {icon:"&#xe611;",name:"organization-outlined",code:"&amp;#xe611;"},
+                             {icon:"&#xe612;",name:"zoomin-outlined",code:"&amp;#xe612;"},
+                             {icon:"&#xe613;",name:"refresh-outlined",code:"&amp;#xe613;"},
+                             {icon:"&#xe614;",name:"checkbox-outlined",code:"&amp;#xe614;"},
+                             {icon:"&#xe615;",name:"contacts-outlined",code:"&amp;#xe615;"},
+                             {icon:"&#xe616;",name:"daterange-outlined",code:"&amp;#xe616;"},
+                             {icon:"&#xe617;",name:"date-outlined",code:"&amp;#xe617;"},
+                             {icon:"&#xe618;",name:"explain-outlined",code:"&amp;#xe618;"},
+                             {icon:"&#xe619;",name:"detailed-outlined",code:"&amp;#xe619;"},
+                             {icon:"&#xe61a;",name:"money-outlined",code:"&amp;#xe61a;"},
+                             {icon:"&#xe61b;",name:"appendix-outlined",code:"&amp;#xe61b;"}],
+                    fontFace:`@font-face {
+  font-family: 'iconfont';
+  src: url('iconfont.eot');
+  src: url('iconfont.eot?#iefix') format('embedded-opentype'),
+      url('iconfont.woff2') format('woff2'),
+      url('iconfont.woff') format('woff'),
+      url('iconfont.ttf') format('truetype'),
+      url('iconfont.svg#iconfont') format('svg');
+}`,
+                    iconfont:`.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}`,
+                    iconfontHtml:`&lt;span class=&quot;iconfont&quot;&gt;&amp;#x33;&lt;/span&gt;` ,
+                    caseHtml:`&lt;div class=&quot;case&quot;&gt;
+    &lt;span class=&quot;iconfont&quot;&gt;&amp;#xe612;&lt;/span&gt;
+    &lt;span class=&quot;iconfont&quot; style=&quot;color: yellow;&quot;&gt;&amp;#xe61a;&lt;/span&gt;
+    &lt;span class=&quot;iconfont&quot; style=&quot;color: red;&quot;&gt;&amp;#xe697;&lt;/span&gt;
+    &lt;button class=&quot;orangeBtn&quot;&gt;&lt;span class=&quot;iconfont btn-iconfont&quot;&gt;&amp;#xe608;&lt;/span&gt; 查询&lt;/button&gt;
+ &lt;/div&gt; `                     
+                }
+            },
+            methods:{
+            
+            }
+        });
+    </script>
+</body>
+</html>

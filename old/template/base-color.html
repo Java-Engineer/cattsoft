@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>盒子色块</title>
+    <link rel="stylesheet" type="text/css" href="../../common/highlight/style.css">
+    <link rel="stylesheet" type="text/css" href="../common/main.css">
+    <style>
+        body{
+            padding: 10px;
+            background: #FFF;
+        }
+        h1{
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 40px;
+        }
+        p{
+            font-size: 14px;
+            color: #5e6d82;
+            line-height: 1.5em;
+        }
+        .box{
+            display: inline-block;
+            width: 160px;
+            height: 80px;
+            margin: 10px;
+            padding: 20px 0 0 20px;
+            border-radius: 5px;
+            color:#fff;
+        }
+        .code{
+            opacity: .69;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="step">
+            <h1>一、安装</h1>
+            <p>在页面上引入 css 文件即可开始使用，<a href="../common/main.css" download="">下载文件</a></p>
+            <pre><code class="language-html" v-html="installHtml"></code></pre>
+        </div>
+        <div class="step">
+            <h1>二、示例</h1>
+            <pre><code class="language-html" v-html="caseHtml"></code></pre>
+        </div>
+        <div class="step">
+            <h1>三、所有色块</h1>
+            <div class="box" v-for="item in boxList" :class="item.name">
+                <div>{{item.name}}</div> 
+                <div class="code">{{item.value}}</div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="../../common/vue/vue.js"></script>
+    <script type="text/javascript" src="../../common/highlight/prismJS.js"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data(){
+                return{
+                    boxList:[{name:"freshGreen",value:"#34c1c3"},
+                             {name:"pink",value:"#ec6d64"},
+                             {name:"grey",value:"#898686"},
+                             {name:"grassGreen",value:"#84c036"},
+                             {name:"orange",value:"#fa9541"},
+                             {name:"yellow",value:"#efc36a"},
+                             {name:"deepOrange",value:"#ec7f4a"},
+                             {name:"purple",value:"#9880c8"},
+                             {name:"green",value:"#29ae8d"},
+                             {name:"blue",value:"#38b5e8"},
+                             {name:"bluePurple",value:"#5e96eb"},
+                             {name:"deelpBlue",value:"#387e91"},
+                             {name:"yellowOrange",value:"#e0ae36"},
+                             {name:"brown",value:"#a47366"},
+                             {name:"brownYellow",value:"#caa153"}] ,
+                    //安装代码
+                    installHtml:`&lt;link rel="stylesheet" type="text/css" href="../common/main.css"&gt;` ,
+                    //示例
+                    caseHtml:`&lt;div class=&quot;box freshGreen&quot;&gt;
+    &lt;div&gt;freshGreen&lt;/div&gt; 
+    &lt;div class=&quot;code&quot;&gt;#34c1c3&lt;/div&gt;
+&lt;/div&gt;`                   
+                }
+            },
+            methods:{
+            
+            }
+        });
+    </script>
+</body>
+</html>

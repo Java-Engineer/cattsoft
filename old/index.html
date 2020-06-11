@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>开发平台</title>
+	<link rel="stylesheet" type="text/css" href="../common/elemnetUI/index.css">
+	<link rel="stylesheet" href="../common/font-awesome-4.7.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="../css/base.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body class="gray-bg">
+	<div id="app" style="width: 100%;height: 100%;">
+		<el-container v-cloak>
+			<el-aside width="auto">
+				<!-- 导航菜单 -->
+				<el-menu class="el-menu-vertical-demo" :collapse="isCollapse" unique-opened
+				 background-color="#2f4050" text-color="#a7b1c2" active-text-color="#FFF">
+					<!-- LOGO -->
+					<div class="logo">
+						<span class="catt-text" v-if="!isCollapse">凯通开发平台</span>
+						<span class="catt-text" v-else>平台</span>
+					</div>
+					
+					<el-submenu v-for="(item, index) in menuOptions" v-if="item.children.length>0" :key="item.id" :index="index+''">
+						<template slot="title">
+							<i :class="item.iconClass"></i>
+							<span slot="title">{{ item.title }}</span>
+						</template>
+						<el-menu-item v-for="(child, idx) in item.children" :index="index+'-'+idx" :key="child.id" 
+							@click="addTab($event, child)" >
+							{{ child.title }}
+						</el-menu-item>
+					</el-submenu>
+					
+					<el-menu-item v-else :key="item.id" @click="addTab($event, item)" :index="index+''">
+						<i :class="item.iconClass"></i>
+						<span slot="title">{{ item.title }}</span>
+					</el-menu-item>
+
+				</el-menu>
+			</el-aside>
+
+			<el-container>
+				<!-- 头部 -->
+				<el-header height="42px">
+					<!-- 菜单收缩按钮 -->
+					<button class="header-tools menu-tools" @click.prevent="collapse">
+						<i class="fa fa-bars"></i>
+					</button>
+					
+					<!-- tabs -->
+					<el-tabs v-model="editableTabsValue" type="card" @tab-remove="removeTab">
+						<el-tab-pane v-for="(item, index) in editableTabs" 
+							:key="item.name" 
+							:label="item.title" 
+							:name="item.name"
+							:closable="index != 0 ? true : false" >
+							<!-- 内嵌内容 -->
+							<iframe :id="item.id" :src="item.src" v-if="item.src" :style="{height: getIframeHei+'px'}"></iframe>
+						</el-tab-pane>
+					</el-tabs>
+					
+					<!-- 工具栏 -->
+					<button class="header-tools tools-right J_tabLeft" @click="prevTab"><i class="fa fa-backward"></i></button>
+					<button class="header-tools tools-right J_tabRight" @click="nextTab"><i class="fa fa-forward"></i></button>
+					
+					<el-dropdown class="header-tools tools-right J_tabClose" title="关闭">
+						<i class="fa fa-close"></i>
+						<el-dropdown-menu slot="dropdown">
+							<el-dropdown-item @click.native="closeCurrent">关闭当前选项卡</el-dropdown-item>
+							<el-dropdown-item @click.native="closeAll">关闭全部选项卡</el-dropdown-item>
+							<el-dropdown-item @click.native="closeOther">关闭其他选项卡</el-dropdown-item>
+						</el-dropdown-menu>
+					</el-dropdown>
+					
+					<button class="header-tools tools-right J_tabReply" title="返回" @click="reply(editableTabsValue)"><i class="fa fa-reply"></i> </button>
+					<button class="header-tools tools-right J_tabRefresh" title="刷新" @click="refresh(editableTabsValue)"><i class="fa fa-refresh"></i> </button>
+					<button class="header-tools tools-right J_tabFullScreen" title="全屏" @click="fullScreen"><i class="fa fa-arrows"></i> </button>
+						
+					<!-- 个人信息 -->
+					<!-- <el-dropdown class="text-muted">
+						<span class="el-dropdown-link">
+							admin<i class="el-icon-arrow-down el-icon--right"></i>
+						</span>
+						<el-dropdown-menu slot="dropdown">
+							<el-dropdown-item>个人资料</el-dropdown-item>
+							<el-dropdown-item>修改密码</el-dropdown-item>
+							<el-dropdown-item @click.native="logout">安全退出</el-dropdown-item>
+						</el-dropdown-menu>
+					</el-dropdown> -->
+				</el-header>
+				
+			</el-container>
+		</el-container>
+	</div>
+	<script type="text/javascript" src="../common/vue/vue.js"></script>
+	<script type="text/javascript" src="../common/elemnetUI/index.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>
