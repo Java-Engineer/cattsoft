@@ -54,28 +54,28 @@ var vueApp =  new Vue({
 							id: '0201',
 							title: '单选框',
 							name: '0201',
-							src: 'template/base-color.html',
+							src: 'template/redio.html',
 							children: []
 						},
 						{
 							id: '0202',
 							title: '多选框',
 							name: '0102',
-							src: 'template/icon.html',
+							src: 'template/rebox.html',
 							children: []
 						},
 						{
 							id: '0203',
 							title: '输入框',
 							name: '0103',
-							src: 'template/button.html',
+							src: 'template/ww.html',
 							children: []
 						},
 						{
 							id: '0203',
 							title: '选择框',
 							name: '0103',
-							src: 'template/button.html',
+							src: 'template/123.html',
 							children: []
 						}
 					]
@@ -91,7 +91,7 @@ var vueApp =  new Vue({
 							id: '0301',
 							title: '图标',
 							name: '0301',
-							src:"demo/icon.html",
+							src:"demo/xx.html",
 							iconClass: 'el-icon-menu',
 							children: []
 						},
@@ -99,7 +99,7 @@ var vueApp =  new Vue({
 							id: '0302',
 							title: '按钮&标签',
 							name: '0302',
-							src:"demo/btn.html",
+							src:"demo/xx.html",
 							iconClass: 'el-icon-menu',
 							children: []
 						},
