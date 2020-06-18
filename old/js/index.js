@@ -52,7 +52,7 @@ var vueApp =  new Vue({
 					children: [
 						{
 							id: '0201',
-							title: '单选框',
+							title: '选择按钮',
 							name: '0201',
 							src: 'template/radio.html',
 							children: []

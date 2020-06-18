@@ -142,6 +142,18 @@
                 </div>
             </div>
         </div>
+        <div class="step">
+            <h1>三、参数说明</h1>
+            <div class="param-table">
+                <el-table :data="tableData"style="width: 100%">
+                    <el-table-column prop="name" label="参数" width="180"></el-table-column>
+                    <el-table-column prop="remake" label="说明"></el-table-column>
+                    <el-table-column prop="type" label="类型" width="180"></el-table-column>
+                    <el-table-column prop="optional" label="可选值" width="180"></el-table-column>
+                    <el-table-column prop="default" label="默认值" width="180"></el-table-column>
+                </el-table>
+            </div>
+        </div>
     </template>
     </div>
     <script type="text/javascript" src="../../common/vue/vue.js"></script>
@@ -155,6 +167,22 @@
             el:"#app",
             data(){
                 return{
+                    tableData:[
+                        {name:"type",remake:"选择按钮类型 1:平铺单选形态 2：平铺多选形态 3:开关，开关形态时，要求传入的选项数据datas的长度只能为2",type:"Number",optional:"1/2/3",default:"--"},
+                        {name:"datas",remake:`选择按钮数据 [{id:"XX",text:"XX",color:"XX"}]，color表示背景颜色，默认blue，开关形态时才会`,type:"Array",optional:"--",default:"--"},
+                        {name:"id",remake:`datas数据中隐式值字段名, 默认取"id"字段 必须与datas保持一致`,type:"String",optional:"--",default:"id"},
+                        {name:"text",remake:`datas数据中显示文本字段名,默认取"text"字段 必须与datas保持一致`,type:"String",optional:"--",default:"text"},
+                        {name:"onChange",remake:`function(obj){}, //所选值发生变化事件,返回{id:"",text:""}`,type:"function",optional:"--",default:"--"},
+                        {name:"addDefault",remake:`是否添加默认选项defaultItem`,type:"boolean",optional:"true/false",default:"true"},
+                        {name:"defaultItem",remake:`自定义默认选项，默认“全部”字段名必须与datas保持一致`,type:"Object",optional:"--",default:"--"},
+                        {name:"width",remake:`div的宽度，开关形态最大200px，默认未设置宽度。`,type:"Number",optional:"--",default:"--"},
+                        {name:"height",remake:`div的高度`,type:"Number",optional:"--",default:"24"},
+                        {name:"fontSize",remake:`字体大小`,type:"Number",optional:"--",default:"24"},
+                        {name:"defaultSelect",remake:`初始化时选中第几个选项`,type:"Number",optional:"--",default:"0"},
+                        {name:"minItemWidth",remake:`每个选项的最小宽度`,type:"Number",optional:"--",default:"50"},
+                        {name:"maxItemWidth",remake:`每个选项的最大宽度`,type:"Number",optional:"--",default:"150"},
+                        {name:"itemMargin",remake:`选项间的间距`,type:"Number",optional:"--",default:"4"},
+                    ],
                     radioShow:false,
                     checkboxShow:false,
                     onOffShow:false,
