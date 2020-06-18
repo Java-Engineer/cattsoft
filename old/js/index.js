@@ -54,27 +54,27 @@ var vueApp =  new Vue({
 							id: '0201',
 							title: '单选框',
 							name: '0201',
-							src: 'template/redio.html',
+							src: 'template/radio.html',
 							children: []
 						},
 						{
 							id: '0202',
 							title: '多选框',
-							name: '0102',
+							name: '0202',
 							src: 'template/rebox.html',
 							children: []
 						},
 						{
 							id: '0203',
 							title: '输入框',
-							name: '0103',
+							name: '0203',
 							src: 'template/ww.html',
 							children: []
 						},
 						{
 							id: '0203',
 							title: '选择框',
-							name: '0103',
+							name: '0203',
 							src: 'template/123.html',
 							children: []
 						}

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>按钮</title>
+    <link rel="stylesheet" type="text/css" href="../../common/elemnetUI/index.css">
+    <link rel="stylesheet" type="text/css" href="../../common/highlight/style.css">
+    <link rel="stylesheet" type="text/css" href="../common/main.css">
+    <style>
+        body{
+            padding: 10px;
+            background: #FFF;
+        }
+        h1{
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 40px;
+        }
+        h2{
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 35px;
+        }
+        .box{  
+           border: 1px solid #ebebeb;
+           border-radius: 3px;
+        }
+        .box-case{
+            height: 40px;
+            padding: 10px;
+            border-bottom: 1px solid #ebebeb;
+        }
+        .box-btn{
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .box-code{
+            padding: 10px;
+            border-bottom: 1px solid #ebebeb;
+        }
+        .code{
+            opacity: .69;
+        }
+        a{text-decoration:none; color:#32a6c8;cursor:pointer;outline:none;}
+        a:hover{color:#f05f33;text-decoration:none;}
+    </style>
+</head>
+<body>
+    <div id="app">
+        <template>
+        <div class="step">
+            <h1>一、安装</h1>
+            <p>首先在页面上引入 公共css 文件，<a href="../common/main.css" download="">下载文件</a></p>
+            <pre><code class="language-html" v-html="installCSS"></code></pre>
+            <p>JS需要引入JQuery和公共组件插件</p>
+            <pre><code class="language-html" v-html="installJS"></code></pre>
+        </div>
+        <div class="step">
+            <h1>二、示例</h1>
+            <h2>1、单选按钮</h2>
+            <div class="step">
+                <div class="box">
+                    <div class="box-case">
+                        <div class="selectDiv">
+                            <div id="radio"></div>
+                        </div>
+                        <button class="blueBtn" @click="initRadio()">初始化</button>
+                        <button class="blueBtn" @click="getRadioValue()">取值</button>
+                        <button class="blueBtn" @click="setRadioValue()">赋值</button>
+                    </div>   
+                    <transition name="el-zoom-in-top">
+                    <div class="box-code" v-show="radioShow">
+                        <span>html</span>
+                        <pre><code class="language-html" v-html="radioHtml"></code></pre>
+                        <span>js</span>
+                        <pre><code class="language-js" v-html="radioJs"></code></pre>
+                    </div>
+                    </transition> 
+                    <div class="box-btn">
+                        <a @click="radioShow = !radioShow">
+                            <i :class="{'el-icon-caret-top':!radioShow,'el-icon-caret-bottom':radioShow}"></i> 
+                            {{radioShow ? '收起源码' : '查看源码'}}
+                        </a>
+                    </div> 
+                </div>
+            </div>
+            <h2>2、多选按钮</h2>
+            <div class="step">
+                <div class="box">
+                    <div class="box-case">
+                        <div class="selectDiv">
+                            <div id="checkbox"></div>
+                        </div>
+                        <button class="blueBtn" @click="initCheckbox()">初始化</button>
+                        <button class="blueBtn" @click="getCheckboxValue()">取值</button>
+                        <button class="blueBtn" @click="setCheckboxValue()">赋值</button>
+                    </div>   
+                    <transition name="el-zoom-in-top">
+                    <div class="box-code" v-show="checkboxShow">
+                        <span>html</span>
+                        <pre><code class="language-html" v-html="checkboxHtml"></code></pre>
+                        <span>js</span>
+                        <pre><code class="language-js" v-html="checkboxJs"></code></pre>
+                    </div>
+                    </transition> 
+                    <div class="box-btn">
+                        <a @click="checkboxShow = !checkboxShow">
+                            <i :class="{'el-icon-caret-top':!checkboxShow,'el-icon-caret-bottom':checkboxShow}"></i> 
+                            {{checkboxShow ? '收起源码' : '查看源码'}}
+                        </a>
+                    </div> 
+                </div>
+            </div>
+            <h2>3、开关按钮</h2>
+            <div class="step">
+                <div class="box">
+                    <div class="box-case">
+                        <div class="selectDiv">
+                            <div id="onOff"></div>
+                        </div>
+                        <button class="blueBtn" @click="initOnOff()">初始化</button>
+                        <button class="blueBtn" @click="getOnOffValue()">取值</button>
+                        <button class="blueBtn" @click="setOnOffValue()">赋值</button>
+                    </div>   
+                    <transition name="el-zoom-in-top">
+                    <div class="box-code" v-show="onOffShow">
+                        <span>html</span>
+                        <pre><code class="language-html" v-html="onOffHtml"></code></pre>
+                        <span>js</span>
+                        <pre><code class="language-js" v-html="onOffJs"></code></pre>
+                    </div>
+                    </transition> 
+                    <div class="box-btn">
+                        <a @click="onOffShow = !onOffShow">
+                            <i :class="{'el-icon-caret-top':!onOffShow,'el-icon-caret-bottom':onOffShow}"></i> 
+                            {{onOffShow ? '收起源码' : '查看源码'}}
+                        </a>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </template>
+    </div>
+    <script type="text/javascript" src="../../common/vue/vue.js"></script>
+    <script type="text/javascript" src="../../common/elemnetUI/index.js"></script>
+    <script type="text/javascript" src="../../common/highlight/prismJS.js"></script>
+    <script type="text/javascript" src="../common/jquery-1.7.1.js"></script>
+    <script type="text/javascript" src="../common/jquery.jqtransform.js"></script>
+    <script type="text/javascript" src="../common/radio.js"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data(){
+                return{
+                    radioShow:false,
+                    checkboxShow:false,
+                    onOffShow:false,
+                    classData:[{id:01,text:"高等数学"},{id:02,text:"计算机基础"},{id:03,text:"JAVA程序设计"}],
+                    onOff:[{value:1,data:'开',color:'green'},{value:0,data:'关',color:'red'}],
+                    //安装代码
+                    installCSS:`&lt;link rel="stylesheet" type="text/css" href="../common/main.css"&gt;` ,
+                    installJS:`&lt;script type=&quot;text/javascript&quot; src=&quot;../common/jquery-1.7.1.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;../common/jquery.jqtransform.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;../common/radio.js&quot;&gt;&lt;/script&gt;` ,
+                    //示例
+                    radioHtml:`&lt;div class=&quot;selectDiv&quot;&gt;
+	&lt;div id=&quot;radio&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;`,
+                    radioJs:`var data = [{id:01,name:"高等数学"},{id:02,name:"计算机基础"},{id:03,name:"JAVA程序设计"}];
+
+/**初始化单选*/
+$("#radio").radio({type:1,datas:data});
+
+/**设置单选按钮*/
+$("#radio").radio("setValue",{id:3});
+
+/**获取单选按钮值*/
+var value = $("#radio").radio("getValue");`,
+                    checkboxHtml:`&lt;div class=&quot;selectDiv&quot;&gt;
+	&lt;div id=&quot;checkbox&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;`,
+                    checkboxJs:`var data = [{id:01,name:"高等数学"},{id:02,name:"计算机基础"},{id:03,name:"JAVA程序设计"}];
+
+/**初始化多选*/
+$("#checkbox").radio({type:2,datas:data});
+
+/**设置多选按钮*/
+$("#checkbox").radio("setValue",{id:"2,3"});
+
+/**获取多选按钮值*/
+var value = $("#checkbox").radio("getValue");`,
+                    onOffHtml:`&lt;div class=&quot;selectDiv&quot;&gt;
+	&lt;div id=&quot;onOff&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;`,
+                    onOffJs:`var data = [{value:1,data:'开',color:'green'},{value:0,data:'关',color:'red'}];
+
+/**初始化开关按钮*/
+$("#onOff").radio({type:3,datas:data});
+
+/**获取初始化开关按钮值*/
+$("#onOff").radio("setValue",{id:"1"});
+
+/**设置初始化开关按钮*/
+var value = $("#onOff").radio("getValue");`
+                }
+            },
+            methods:{
+                /**初始化单选*/
+                initRadio(){
+                    $("#radio").radio({type:1,datas:this.classData});
+                    this.$notify({title: '成功',message: '单选按钮初始化成功',type: 'success'});
+                },
+                /**获取单选按钮值*/
+                getRadioValue(){
+                    var value = $("#radio").radio("getValue");
+                    value = JSON.stringify(value); 
+                    this.$alert(`获取值为：\n${value}`, '提示');
+                },
+                /**设置单选按钮*/
+                setRadioValue(){
+                    $("#radio").radio("setValue",{id:3});
+                    this.$notify({title: '成功',message: '单选按钮赋值成功',type: 'success'});
+                },
+                /**初始化单选*/
+                initCheckbox(){
+                    $("#checkbox").radio({type:2,datas:this.classData});
+                    this.$notify({title: '成功',message: '多选按钮初始化成功',type: 'success'});
+                },
+                /**获取单选按钮值*/
+                getCheckboxValue(){
+                    var value = $("#checkbox").radio("getValue");
+                    value = JSON.stringify(value); 
+                    this.$alert(`获取值为：\n${value}`, '提示');
+                },
+                /**设置单选按钮*/
+                setCheckboxValue(){
+                    $("#checkbox").radio("setValue",{id:"2,3"});
+                    this.$notify({title: '成功',message: '多选按钮赋值成功',type: 'success'});
+                },
+                 /**初始化开关按钮*/
+                initOnOff(){
+                    $("#onOff").radio({type:3,datas:this.onOff,id:"value",text: "data"});
+                    this.$notify({title: '成功',message: '开关按钮初始化成功',type: 'success'});
+                },
+                /**获取初始化开关按钮值*/
+                getOnOffValue(){
+                    var value = $("#onOff").radio("getValue");
+                    value = JSON.stringify(value); 
+                    this.$alert(`获取值为：\n${value}`, '提示');
+                },
+                /**设置初始化开关按钮*/
+                setOnOffValue(){
+                    $("#onOff").radio("setValue",{id:"1"});
+                    this.$notify({title: '成功',message: '开关按钮赋值成功',type: 'success'});
+                }
+            },
+            mounted(){
+               $("#radio").radio({type:1,datas:this.classData});
+               $("#checkbox").radio({type:2,datas:this.classData});
+               $("#onOff").radio({type:3,datas:this.onOff,id:"value",text: "data"});
+            }
+        });
+    </script>
+</body>
+</html>

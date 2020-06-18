@@ -391,6 +391,8 @@ width:35px; height:35px;background:url(../images/airplane.png) no-repeat center 
 
 
 /*单选框*/
+.selectOrder{float:left;margin-top:5px;}
+.selectOrder p{float:left;line-height:28px;}
 .jqTransformHidden {display: none;}
 .jqTransformRadioWrapper {float: left;display:block;margin:0px 4px;	margin-top:5px;}
 .jqTransformRadio{background: transparent url(../images/radioIcon.png) no-repeat center bottom;vertical-align: middle;height: 19px;width: 19px;display:block;}
