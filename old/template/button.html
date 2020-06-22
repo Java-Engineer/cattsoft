@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>按钮</title>
     <link rel="stylesheet" type="text/css" href="../../common/highlight/style.css">
-    <link rel="stylesheet" type="text/css" href="../common/main.css">
+    <link rel="stylesheet" type="text/css" href="../common/base.css">
     <style>
         body{
             padding: 10px;
@@ -33,7 +33,7 @@
     <div id="app">
         <div class="step">
             <h1>一、安装</h1>
-            <p>在页面上引入 css 文件即可开始使用，<a href="../common/main.css" download="">下载文件</a></p>
+            <p>在页面上引入 css 文件即可开始使用，<a href="../common/base.css" download="">下载文件</a></p>
             <pre><code class="language-html" v-html="installHtml"></code></pre>
         </div>
         <div class="step">
@@ -57,7 +57,7 @@
                 return{
                     btnList:['orangeBtn','grayBtn','blueBtn','redBtn'] ,
                     //安装代码
-                    installHtml:`&lt;link rel="stylesheet" type="text/css" href="../common/main.css"&gt;` ,
+                    installHtml:`&lt;link rel="stylesheet" type="text/css" href="../common/base.css"&gt;` ,
                     //示例
                     caseHtml:`&lt;button  class=&quot;orangeBtn&quot;&gt;按钮&lt;/button&gt;`                   
                 }

@@ -6,7 +6,7 @@
     <title>按钮</title>
     <link rel="stylesheet" type="text/css" href="../../common/elemnetUI/index.css">
     <link rel="stylesheet" type="text/css" href="../../common/highlight/style.css">
-    <link rel="stylesheet" type="text/css" href="../common/main.css">
+    <link rel="stylesheet" type="text/css" href="../common/base.css">
     <style>
         body{
             padding: 10px;
@@ -53,7 +53,7 @@
         <template>
         <div class="step">
             <h1>一、安装</h1>
-            <p>首先在页面上引入 公共css 文件，<a href="../common/main.css" download="">下载文件</a></p>
+            <p>首先在页面上引入 公共css 文件，<a href="../common/base.css" download="">下载文件</a></p>
             <pre><code class="language-html" v-html="installCSS"></code></pre>
             <p>JS需要引入JQuery和公共组件插件</p>
             <pre><code class="language-html" v-html="installJS"></code></pre>
@@ -189,7 +189,7 @@
                     classData:[{id:01,text:"高等数学"},{id:02,text:"计算机基础"},{id:03,text:"JAVA程序设计"}],
                     onOff:[{value:1,data:'开',color:'green'},{value:0,data:'关',color:'red'}],
                     //安装代码
-                    installCSS:`&lt;link rel="stylesheet" type="text/css" href="../common/main.css"&gt;` ,
+                    installCSS:`&lt;link rel="stylesheet" type="text/css" href="../common/base.css"&gt;` ,
                     installJS:`&lt;script type=&quot;text/javascript&quot; src=&quot;../common/jquery-1.7.1.js&quot;&gt;&lt;/script&gt;
 &lt;script type=&quot;text/javascript&quot; src=&quot;../common/jquery.jqtransform.js&quot;&gt;&lt;/script&gt;
 &lt;script type=&quot;text/javascript&quot; src=&quot;../common/radio.js&quot;&gt;&lt;/script&gt;` ,
