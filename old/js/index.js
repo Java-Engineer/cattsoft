@@ -66,9 +66,9 @@ var vueApp =  new Vue({
 						},
 						{
 							id: '0203',
-							title: '输入框',
+							title: '选择框',
 							name: '0203',
-							src: 'template/ww.html',
+							src: 'template/select.html',
 							children: []
 						},
 						{

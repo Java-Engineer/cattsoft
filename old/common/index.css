@@ -1,0 +1,591 @@
+body {
+    font-size: 14px;
+    font-family: '微软雅黑';
+    padding: 0;
+    margin: 0;
+    color: #3e3a39;
+    background-color: #ffffff;
+}
+
+.tree-file {
+    background: none;
+}
+
+
+.datagrid-header-row, .datagrid-row {
+    height: 47px;
+}
+
+.datagrid-cell, .datagrid-cell-group, .datagrid-header-rownumber, .datagrid-cell-rownumber {
+    margin: 0;
+    word-wrap: normal;
+    overflow: hidden;
+    font-size: 14px;
+}
+
+.tree-title {
+    font-size: 14px;
+    display: inline-block;
+    text-decoration: none;
+    vertical-align: top;
+    white-space: nowrap;
+    padding: 0 2px;
+    height: 41px;
+    line-height: 47px;
+}
+
+.tree-expanded,
+.tree-collapsed,
+.tree-folder,
+.tree-file,
+.tree-checkbox,
+.tree-indent {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+.datagrid-header td {
+    background-color: #93A9BE;
+    color: #fff;
+    font-weight: bold;
+    border-top: 1px solid #45b6d7;
+    border-bottom: 2px solid #45b6d7;
+    background-color: #45b6d7;
+    color: #fff;
+    white-space: nowrap;
+    word-break: keep-all;
+}
+
+.datagrid-header-inner {
+    float: left;
+    width: 10000px;
+    background-color: #45b6d7;
+}
+
+.datagrid-header .datagrid-cell span {
+    font-size: 14px;
+}
+
+.datagrid-row-alt {
+    background-color: #FFF;
+}
+
+.datagrid-row-checked, datagrid-row-selected {
+    background: none;
+}
+
+.datagrid-body td {
+    border-bottom: 1px solid #ccc;
+}
+
+.datagrid-body td {
+    border-bottom-style: inset;
+}
+
+.datagrid-row-over {
+    background: #FAF2FF;
+}
+
+.datagrid-row-selected {
+    background: #FFEBE2;
+}
+
+.datagrid div.panel-body {
+    border-right-width: 0px;
+    border-left-width: 0px;
+    border-bottom-width: 0px;
+}
+
+.panel-body {
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 14px;
+}
+
+.tabs-title {
+    font-size: 14px;
+}
+
+.pagination table {
+    position: absolute;
+    left: 50%;
+    margin-left: -130px;
+}
+
+.close {
+    background: #fff;
+    width: 18px;
+    height: 20px;
+    position: absolute;
+    margin-left: 131px;
+    margin-top: 8px;
+}
+
+.close2 {
+    background: #fff;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    margin-left: 133px;
+    margin-top: 13px;
+}
+
+.close3 {
+    background: #fff;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    margin-left: 158px;
+    margin-top: 9.5px;
+}
+
+
+.content {
+    width: 100%;
+}
+
+.leftContent {
+    width: 120px;
+    background-color: rgba(239, 239, 239, 1);
+    height: 100%;
+    float: left;
+}
+
+a {
+    color: #000000;
+}
+
+.leftContent ul li {
+    width: 100%;
+    height: 50px;
+    background: inherit;
+    background-color: rgba(239, 239, 239, 1);
+    box-sizing: border-box;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(215, 215, 215, 1);
+    border-radius: 0px;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    line-height: 50px;
+    text-align: center;
+}
+
+.leftContent ul li.selectItem {
+    background-color: rgba(44, 169, 187, 1);
+    color: #FFFFFF;
+}
+
+li.selectItem a {
+    color: #FFFFFF;
+}
+
+.mainContent {
+    height: 100%;
+    float: left;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#cableInfo {
+    width: 100%;
+}
+
+
+.attachTable th div {
+    text-align: center !important;
+}
+
+#form1 table td {
+    width: 10%;
+    font-weight: normal;
+    word-break: keep-all;
+    white-space: nowrap;
+    color: #0086c2;
+    text-align: right;
+    padding: 8px 5px 5px 15px;
+    vertical-align: middle;
+}
+
+#form1 table th {
+    width: 28%;
+    font-weight: normal;
+    word-wrap: break-word;
+    word-break: break-all;
+    color: #3e3a39;
+    padding: 8px 10px 5px 0;
+    vertical-align: middle;
+    text-align: left;
+}
+
+#form2 table td {
+    width: 8%;
+    font-weight: normal;
+    word-break: keep-all;
+    white-space: nowrap;
+    color: #0086c2;
+    text-align: right;
+    padding: 8px 5px 5px 15px;
+    vertical-align: middle;
+}
+
+#form2 table th {
+    width: 14%;
+    font-weight: normal;
+    word-wrap: break-word;
+    word-break: break-all;
+    color: #3e3a39;
+    padding: 8px 10px 5px 0;
+    vertical-align: middle;
+    text-align: left;
+}
+
+.chechboxStyle input {
+    width: 17px;
+    height: 17px;
+    margin-top: 0px;
+}
+
+.chechboxStyle input:focus {
+    border: none;
+    box-shadow: none;
+}
+
+.te {
+    left: 74%;
+    border-right: 0 !important;
+}
+
+.te2 {
+    left: 70%;
+    border-right: 0 !important;
+}
+
+.formStyle td {
+    height: 30px;
+    line-height: 30px;
+}
+
+.intext {
+    float: left;
+    height: 24px;
+    border: 0px solid #b6b7b7;
+    position: relative;
+    width: 100%;
+}
+
+.intext input, select {
+    width: 80%;
+}
+
+.seach td {
+    width: 80px;
+}
+
+.setInfo {
+    position: fixed;
+    top: 48px;
+    right: 18px;
+    z-index: 999999999;
+    text-decoration: underline;
+    font-size: 14px;
+    cursor: pointer
+}
+
+.business {
+    border: 0px solid #45b6d7;
+    border-radius: 6px;
+    width: 100%;
+    text-align: center;
+    margin: 10px 5px 10px 10px;
+}
+
+.business li {
+    background: #fb8a48;
+    border-radius: 5px;
+    margin-right: 10px;
+    display: inline-block;
+    padding: 0 20px;
+    line-height: 30px;
+    color: #fff;
+    cursor: pointer;
+    border-right: 0px solid #65c9e6;
+    text-align: center;
+    position: relative;
+    float: none;
+}
+
+#toolbar {
+    margin-bottom: 5px;
+    width: 100%;
+    text-align: center;
+}
+
+a.jqTransformCheckbox {
+    padding-top: 1px;
+}
+
+.tableTitle {
+    border-width: 0px;
+    height: 33px;
+    background: inherit;
+    background-color: rgba(129, 211, 248, 1);
+    box-sizing: border-box;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(69, 182, 215, 1);
+    border-radius: 0px;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    display: inline-block;
+}
+
+.roadTitle {
+    height: 33px;
+    background: inherit;
+    background-color: rgba(129, 211, 248, 0.466666666666667);
+    box-sizing: border-box;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(69, 182, 215, 1);
+    border-radius: 0px;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    display: inline-block;
+}
+
+.titleInfo {
+    width: 180px;
+    line-height: 33px;
+    color: #ffffff;
+    font-family: '微软雅黑';
+    font-weight: 400;
+    font-style: normal;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.roadTitleInfo {
+    float: left;
+    width: 82px;
+    line-height: 33px;
+    color: #ffffff;
+    font-family: '微软雅黑';
+    font-weight: 400;
+    font-style: normal;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.btnStyle {
+    display: inline-block;
+}
+
+.btnStyle div {
+    width: 65px;
+    text-align: center;
+    display: inline-block;
+    background-color: #f8f8f8;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.datagrid-header, .datagrid-td-rownumber {
+    background-color: #ffffff;
+    background: -webkit-linear-gradient(top, #ffffff 0, #ffffff 100%);
+    background: -moz-linear-gradient(top, #ffffff 0, #ffffff 100%);
+    background: -o-linear-gradient(top, #ffffff 0, #ffffff 100%);
+    background: linear-gradient(to bottom, #ffffff 0, #ffffff 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff, endColorstr=#ffffff, GradientType=0);
+}
+
+.datagrid-htable, .datagrid-btable, .datagrid-ftable {
+    color: #666666;
+    border-collapse: separate;
+}
+
+.searchIcon {
+    float: left;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-top: 6px;
+    margin-left: -206px;
+}
+
+.inputBox {
+    display: inline-block;
+}
+
+.search {
+    float: left;
+    width: 188px;
+    height: 23px;
+    margin-top: 3px;
+    border-radius: 6px;
+    display: inline-block;
+    border: 1px solid #f8f8f8;
+    padding-left: 20px;
+
+}
+
+.btnStyleRight {
+    float: right;
+    margin-top: 5px;
+    margin-left: 20px;
+}
+
+.roadBox {
+    float: left;
+    display: inline-block;
+}
+
+.switchBox {
+    float: right;
+    margin-right: 4px;
+    margin-top: 4px;
+    cursor: pointer;
+}
+
+.detailDiv {
+    overflow-y: auto;
+}
+
+.datagrid-cell, .datagrid-cell-group, .datagrid-header-rownumber, .datagrid-cell-rownumber {
+    text-overflow: ellipsis;
+}
+
+.datagrid-view2 tr td {
+    /*border-left: 1px #cac1c1 solid;*/
+}
+
+/*按纽*/
+.orangeBtn {
+    float: left;
+    background: #fb8a48;
+    border-radius: 4px;
+    line-height: 34px;
+    height: 34px;
+    color: #fff;
+    cursor: pointer;
+    width: 100px;
+    margin-left: 20px;
+}
+
+.orangeBtn:hover {
+    background: #e8722d;
+}
+
+.grayBtn {
+    float: left;
+    background: #7a7a7a;
+    border-radius: 4px;
+    line-height: 34px;
+    height: 34px;
+    color: #fff;
+    cursor: pointer;
+    width: 100px;
+    margin-left: 20px;
+}
+
+.grayBtn:hover {
+    background: #565656;
+}
+
+.blueBtn {
+    float: left;
+    background: #45b6d7;
+    border-radius: 4px;
+    line-height: 34px;
+    height: 34px;
+    color: #fff;
+    cursor: pointer;
+    width: 100px;
+    margin-left: 20px;
+}
+
+.blueBtn:hover {
+    background: #209ec4;
+}
+
+.timeInput {
+    float: left;
+    width: 81%;
+    height: 25px;
+    background: #fff;
+    border: 1px solid #afc1cf;
+}
+
+.timeInput input {
+    float: left;
+    width: 82%;
+    border: none;
+    line-height: 25px;
+    height: 25px;
+    padding-left: 10px;
+}
+.timeInput button {
+    float: right;
+    background: #bdc4cc url(../images/time_set_icon.gif) no-repeat center;
+    width: 30px;
+    height: 25px;
+}
+
+.timeInput{float:left;width:80%;height:25px;border:1px solid #c0c4c7;background:#fff;}
+.timeAnd{float:left;padding:0 10px;}
+.timeInput input {
+    float: left;
+    width: 75%;
+    border: none;
+    line-height: 25px;
+    height: 25px;
+    padding-left: 5px;
+}
+.timeInput button{float:right;background:url(../images/time_set_icon.gif) no-repeat center;width:30px;height:25px;}
+.inspectionDiv{width:1000px;margin:0 auto;}
+
+.layui-table, .layui-table-view{
+    margin: 0px 0;
+}
+.multipleA {
+    right: -11px;
+}
+.inputClear{
+    right: 10px;
+}
+
+.deInput, .orderTable input.deInput, .titleInput, .editorTable input.addInput, .attachTable input.deInput {
+    float: left;
+    padding-left: 5px;
+    line-height: 25px;
+    height: 25px;
+    background: #ffffff;
+    border: 1px solid #cacaca;
+}
+
+.datagrid-header td.datagrid-header-over{
+    border-right: 1px dotted rgba(2, 26, 52, 1);
+}
+.reportInput{border:1px solid #c0c4c7;line-height:25px;height:25px;padding:0 15px;color:gray;width:100%;}
+.systemSearch{float:left;width:280px;margin-left:15px;}
+.divBox .inputClear {
+    /* display: none; */
+    position: absolute;
+    right: 1px;
+    cursor: pointer;
+    /* background-color: #fff; */
+    width: 16px;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: bold;
+    color: grey;
+    background: transparent;
+    border: 0;
+}

@@ -1,0 +1,1188 @@
+<HTML>
+<HEAD>
+<TITLE>My97日期控件 功能演示 My97Datepicker Demo</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<LINK href="main.files/base.css" type=text/css rel=stylesheet>
+<STYLE type=text/css>
+P {
+	FONT-WEIGHT: normal
+}
+TABLE {
+	FONT-WEIGHT: normal
+}
+TD {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; PADDING-TOP: 3px; BACKGROUND-COLOR: #fff
+}
+TH {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; PADDING-TOP: 3px; BACKGROUND-COLOR: #ccc; TEXT-ALIGN: center
+}
+#content {
+	PADDING-RIGHT: 40px; PADDING-LEFT: 50px
+}
+#content H2 {
+	FONT-SIZE: 18px; MARGIN-BOTTOM: 8px; COLOR: #1e9300; PADDING-TOP: 30px
+}
+#content H3 {
+	MARGIN-TOP: 24px; MARGIN-BOTTOM: 8px; FONT: bold 14px 宋体,tahoma,arial,sans-serif; COLOR: #0033cc
+}
+#content UL {
+	MARGIN-LEFT: 20px
+}
+#content OL {
+	MARGIN: 16px 0px 8px 36px; FONT: bold 9pt 宋体,tahoma,arial,sans-serif
+}
+#content OL LI {
+	MARGIN-TOP: 16px
+}
+#content DIV {
+	BORDER-RIGHT: #333 1px solid; BORDER-TOP: #333 1px solid; MARGIN-TOP: 20px; MARGIN-BOTTOM: 10px; BORDER-LEFT: #333 1px solid; BORDER-BOTTOM: #333 1px solid
+}
+#content DIV H4 {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; FONT-SIZE: 9pt; BACKGROUND: #eee; MARGIN-BOTTOM: 5px; PADDING-BOTTOM: 3px; PADDING-TOP: 3px
+}
+#content DIV P {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; PADDING-TOP: 5px
+}
+.STYLE1 {
+	COLOR: #ff0000
+}
+.STYLE2 {
+	COLOR: #0000ff
+}
+</STYLE>
+<script>
+  var local=window.location.href;
+  function toHref(hf){location.href=local+hf;}
+</script>
+<BODY>
+<SCRIPT language=JavaScript src="../../WdatePicker.js" type=text/javascript></SCRIPT>
+
+<DIV class="dCenter dBody">
+<DIV id=content>
+<SCRIPT type=text/javascript><!--
+google_ad_client = "pub-6343250634002651";
+/* 728x90, 创建于 08-8-17 */
+google_ad_slot = "4466625652";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</SCRIPT>
+
+<H2>一. 简介<A id=m1 name=m1></A></H2>
+<H3>1. 简介<A id=m11 name=m11></A></H3>
+<P>目前的版本是:4.1 正式版 发布于2008-10-20</P>
+<H3>2. 注意事项<A id=m12 name=m12></A></H3>
+<UL>
+  <LI>My97DatePicker目录是一个整体,<SPAN 
+  class=STYLE1>不可破坏里面的目录结构</SPAN>,也不可对里面的文件改名,可以改目录名 
+  <LI>My97DatePicker.htm是必须文件,<SPAN class=STYLE1>不可删除</SPAN> 
+  <LI>各目录及文件的用途: <BR><SPAN class=STYLE2>WdatePicker.js</SPAN> 配置文件,在调用的地方仅需使用该文件 
+  <BR><SPAN class=STYLE2>config.js</SPAN> 语言和皮肤配置文件 <BR><SPAN 
+  class=STYLE2>calendar.js</SPAN> 日期库主文件) <BR><SPAN 
+  class=STYLE2>My97DatePicker.htm</SPAN> 临时页面文件,不可删除<BR><SPAN 
+  class=STYLE2>目录lang</SPAN> 存放语言文件 <BR><SPAN class=STYLE2>目录skin 
+  </SPAN>存放皮肤的相关文件 
+  <LI>当WdatePicker.js里的属性:$wdate=true时,在input里加上class="Wdate"就会在选择框右边出现日期图标,如果您不喜欢这个样式,可以把class="Wdate"去掉,另外也可以通过修改skin目录下的WdatePicker.css文件来修改样式 
+  </LI></UL>
+<H3>3. 支持的浏览器<A id=m13 name=m13></A></H3>
+<P>IE 6.0+ , Firefox 2.0+ , Opera 9.5+ , Safari 3.0+</P>
+<H2>二. 功能及示例<A id=m2 name=m2></A></H2>
+<H3>1. 常规功能<A id=m21 name=m21></A></H3>
+<OL>
+  <LI>支持多种调用模式 <A id=m211 name=m211></A>
+  <P>除了支持常规在input单击或获得焦点调用外,还支持使用其他的元素如:&lt;img&gt;&lt;div&gt;等触发WdatePicker函数来调用弹出日期框</P>
+  <DIV>
+  <H4>示例1-1-1 常规调用</H4>
+  <P><INPUT id=d11 onclick=WdatePicker()> <BR>&lt;input id="d11" type="text" 
+  <SPAN class=STYLE1>onClick="WdatePicker()"</SPAN>/&gt;</P></DIV>
+  <DIV>
+  <H4>示例1-1-2 图标触发</H4>
+  <P><INPUT id=d12> <IMG style="CURSOR: pointer" 
+  onclick="WdatePicker({el:$dp.$('d12')})" height=22 
+  src="main.files/datePicker.gif" width=16 align=absMiddle> <BR>&lt;input 
+  id="<SPAN class=STYLE1>d12</SPAN>" type="text"/&gt;<BR>&lt;img 
+  onclick="WdatePicker({<SPAN class=STYLE2>el:</SPAN><SPAN 
+  class=STYLE1>$dp.$('d12')</SPAN>})" src="../skin/datePicker.gif" width="16" 
+  height="22" align="absmiddle"&gt;<BR>注:<SPAN class=STYLE1>$dp.$</SPAN> 相当于 
+  document.getElementById <BR><SPAN class=STYLE1>$dp.$</SPAN> 的详细用法可以参考<A 
+  href="http://www.my97.net/dp/demo/resource/main.asp#m5">内置函数</A></P></DIV>
+  <LI>下拉,输入,导航选择日期<A id=m212 name=m212></A> 
+  <P>年月时分秒输入框都具备以下三种特性 <BR>1. 通过导航图标选择<BR><IMG height=197 
+  src="main.files/pic1.jpg" width=180><BR><BR>2. 直接使用键盘输入数字<BR><IMG height=197 
+  src="main.files/pic2.jpg" width=180><BR><BR>3. 直接从弹出的下拉框中选择<BR><IMG height=197 
+  src="main.files/pic3.jpg" width=180><BR><BR><SPAN 
+  class=STYLE2>另:年份输入框有智能提示功能,当用户连续点击同一个导航按钮5次时,会自动弹出年份下拉框</SPAN></P>
+  <LI>支持周显示 <A id=m213 name=m213></A>
+  <P>可以通过配置isShowWeek属性决定是否限制周,并且在返回日期的时候还可以通过自带的自定义事件和API函数返回选择的周</P><BR>
+  <DIV>
+  <H4>示例1-2-1 周显示简单应用 </H4>
+  <P><INPUT id=d121 onfocus=WdatePicker({isShowWeek:true})> <BR>&lt;input 
+  id="d121" type="text" onfocus="WdatePicker({<SPAN 
+  class=STYLE2>isShowWeek:</SPAN><SPAN 
+class=STYLE1>true</SPAN>})"/&gt;</P></DIV>
+  <DIV>
+  <H4>示例1-2-2 利用onpicked事件把周赋值给另外的文本框</H4>
+  <P><INPUT class=Wdate id=d122 
+  onfocus="WdatePicker({isShowWeek:true,onpicked:function(){$dp.$('d122_1').value=$dp.cal.getP('W','W');$dp.$('d122_2').value=$dp.cal.getP('W','WW');}})"> 
+  &nbsp;&nbsp; 您选择了第 <INPUT id=d122_1 size=3> (W格式)周, 另外您可以使用WW格式: <INPUT 
+  id=d122_2 size=3> 周 <BR>&lt;input type="text" class="Wdate" id="d122" 
+  onFocus="WdatePicker({<SPAN class=STYLE2>isShowWeek:</SPAN><SPAN 
+  class=STYLE1>true</SPAN>,<SPAN class=STYLE2>onpicked:</SPAN><SPAN 
+  class=STYLE1>function() 
+  {$dp.$('d122_1').value=$dp.cal.getP('W','W');$dp.$('d122_2').value=$dp.cal.getP('W','WW');}</SPAN>})"/&gt;<BR><BR>onpicked 
+  用法详见<A 
+  href="http://www.my97.net/dp/demo/resource/main.asp#">自定义事件</A><BR>$dp.cal.getP 
+  用法详见<A 
+  href="http://www.my97.net/dp/demo/resource/main.asp#m5">内置函数</A><BR></P></DIV>
+  <LI>只读开关,高亮周末功能 <A id=m214 name=m214></A>
+  <P>设置readOnly属性 true 或 false 可指定日期框是否只读 <BR>设置highLineWeekDay属性 ture 或 false 
+  可指定是否高亮周末 </P>
+  <LI>操作按钮自定义 <A id=m215 name=m215></A>
+  <P>清空按钮和今天按钮,可以根据需要进行自定义,它们分别对应 isShowClear 和 isShowToday 默认值都是true</P>
+  <DIV>
+  <H4>示例1-5 禁用清空功能</H4>
+  <P>最好把readOnly置为true,否则即使隐藏了清空按钮,用户依然可以在输入框里把值delete掉<BR><INPUT class=Wdate 
+  id=d15 onfocus=WdatePicker({isShowClear:false,readOnly:true})> <BR>&lt;input 
+  class="Wdate" type="text" id="d15" onFocus="WdatePicker({<SPAN 
+  class=STYLE2>isShowClear:</SPAN><SPAN class=STYLE1>false</SPAN>,<SPAN 
+  class=STYLE2>readOnly:</SPAN><SPAN class=STYLE1>true</SPAN>})"/&gt;</P></DIV>
+  <LI>自动选择显示位置<A id=m216 name=m216></A> 
+  <P>当控件处在页面边界时,它会自动选择显示的位置,所以没有必要担心弹出框会被页面边界遮住的问题了.</P>
+  <LI>自定义弹出位置 <A id=m217 name=m217></A>
+  <P>当控件处在页面边界时,它会自动选择显示的位置.此外你还可以使用position参数对弹出位置做调整.</P><BR>
+  <DIV>
+  <H4>示例1-6 通过position属性,自定义弹出位置</H4>
+  <P>使用positon属性指定,弹出日期的坐标为{left:100,top:50}<BR><INPUT class=Wdate id=d16 
+  onfocus=WdatePicker({position:{left:100,top:50}})> <BR>&lt;input class="Wdate" 
+  type="text" id="d16" onfocus="WdatePicker({<SPAN 
+  class=STYLE2>position:</SPAN><SPAN 
+  class=STYLE1>{left:100,top:50}</SPAN>})"/&gt;<BR><BR>position属性的详细用法详见<A 
+  href="http://www.my97.net/dp/demo/resource/main.asp#m31">属性表</A></P></DIV></LI></OL>
+<H3>2. 特色功能 <A id=m22 name=m22></A></H3>
+<OL>
+  <LI>平面显示 <A id=m221 name=m221></A>
+  <P>日期控件支持平面显示功能,只要设置一下eCont属性就可以把它当作日历来使用了,无需触发条件,直接显示在页面上</P><BR>
+  <DIV>
+  <H4>示例2-1 平面显示演示</H4>
+  <DIV id=div1 
+  style="BORDER-TOP-WIDTH: 0px; PADDING-RIGHT: 5px; PADDING-LEFT: 5px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; BORDER-RIGHT-WIDTH: 0px"></DIV>
+  <SCRIPT> 
+WdatePicker({eCont:'div1',onpicked:function(dp){alert('你选择的日期是:'+dp.cal.getDateStr())}})
+</SCRIPT>
+
+  <P>&lt;div id="<SPAN 
+  class=STYLE1>div1</SPAN>"&gt;&lt;/div&gt;<BR>&lt;script&gt;<BR>WdatePicker({<SPAN 
+  class=STYLE2>eCont:</SPAN><SPAN 
+  class=STYLE1>'div1'</SPAN>,onpicked:function(dp){alert('你选择的日期是:'+dp.cal.getDateStr())}})<BR>&lt;/script&gt;<BR><BR>$dp.cal.getDateStr 
+  用法详见<A 
+  href="http://www.my97.net/dp/demo/resource/main.asp#m5">内置函数</A></P></DIV>
+  <LI>支持多种容器 <A id=m222 name=m222></A>
+  <P>除了可以将值返回给input以外,还可以通过配置el属性将值返回给其他的元素(如:textarea,div,span)等,带有innerHTML属性的HTML元素</P>
+  <DIV>
+  <H4>示例2-2 将日期返回到&lt;span&gt;中</H4>
+  <P><SPAN id=demospan>2008-01-01</SPAN> <IMG style="CURSOR: pointer" 
+  onclick="WdatePicker({el:'demospan'})" height=22 
+  src="main.files/datePicker.gif" width=16 
+  align=absMiddle><BR><BR>代码:<BR>&lt;span id="<SPAN 
+  class=STYLE1>demospan</SPAN>"&gt;2008-01-01&lt;/span&gt; <BR>&lt;img 
+  onClick="WdatePicker({<SPAN class=STYLE2>el:</SPAN><SPAN 
+  class=STYLE1>'demospan'</SPAN>})" 
+  src="../../My97DatePicker/skin/datePicker.gif" width="16" height="22" 
+  align="absmiddle" style="cursor:pointer" /&gt;</P></DIV>
+  <LI>起始日期功能 <A id=m223 name=m223></A><BR><SPAN class=STYLE1>注意:日期格式必须与 
+  realDateFmt 和 realTimeFmt 一致</SPAN> 
+  <P>有时在项目中需要选择生日之类的日期,而默认点开始日期都是当前日期,导致年份选择非常麻烦,你可以通过起始日期功能加上配置alwaysUseStartDate属性轻松解决此类问题</P>
+  <DIV>
+  <H4>示例2-3-1 起始日期简单应用 </H4>
+  <P>默认的起始日期为 1980-05-01<BR>当日期框<SPAN class=STYLE2>为空值时</SPAN>,将使用 1980-05-01 
+  做为起始日期 <BR><BR><INPUT id=d221 onfocus="WdatePicker({startDate:'1980-05-01'})"> 
+  <BR>&lt;input type="text" id="d221" onFocus="WdatePicker({<SPAN 
+  class=STYLE2>startDate:</SPAN><SPAN 
+  class=STYLE1>'1980-05-01'</SPAN>})"/&gt;</P></DIV>
+  <DIV>
+  <H4>示例2-3-2 alwaysUseStartDate属性应用</H4>
+  <P>默认的起始日期为 1980-05-01<BR>当日期框<SPAN class=STYLE2>无论是何值</SPAN>,始终使用 1980-05-01 
+  做为起始日期 <BR><BR><INPUT id=d222 
+  onfocus="WdatePicker({startDate:'1980-05-01',alwaysUseStartDate:true})"> 
+  <BR>&lt;input type="text" id="d222" onFocus="WdatePicker({<SPAN 
+  class=STYLE2>startDate:</SPAN><SPAN class=STYLE1>'1980-05-01'</SPAN>,<SPAN 
+  class=STYLE2>alwaysUseStartDate:</SPAN><SPAN 
+  class=STYLE1>true</SPAN>})"/&gt;</P></DIV>
+  <DIV>
+  <H4>示例2-3-3 使用内置参数</H4>
+  <P>除了使用静态的日期值以外,还可以使用动态参数(如:%y,%M分别表示当前年和月)<BR><BR>下例演示,<SPAN 
+  class=STYLE2>年月日使用当年当月的1日,时分秒使用00:00:00作为起始时间</SPAN><BR><BR><INPUT id=d233 
+  onfocus="WdatePicker({startDate:'%y-%M-01 00:00:00',dateFmt:'yyyy-MM-dd HH:mm:ss',alwaysUseStartDate:true})"> 
+  <BR>&lt;input type="text" id="d233" onFocus="WdatePicker({<SPAN 
+  class=STYLE2>startDate:</SPAN><SPAN class=STYLE1>'%y-%M-01 
+  00:00:00'</SPAN>,dateFmt:'yyyy-MM-dd HH:mm:ss',<SPAN 
+  class=STYLE2>alwaysUseStartDate:</SPAN><SPAN 
+  class=STYLE1>true</SPAN>})"/&gt;</P></DIV>
+  <LI>自定义格式 <A id=m224 name=m224></A>
+  <P>yMdHmswW分别代表年月日时分秒星期周,你可以任意组合这些元素来自定义你个性化的日期格式. </P><BR>日期格式表 
+  <TABLE cellSpacing=1 width="100%" bgColor=#000000 border=0>
+    <TBODY>
+    <TR>
+      <TH width="12%">格式</TH>
+      <TH width="88%">说明</TH></TR>
+    <TR>
+      <TD align=middle>y</TD>
+      <TD>将年份表示为最多两位数字。如果年份多于两位数，则结果中仅显示两位低位数。</TD></TR>
+    <TR>
+      <TD align=middle>yy </TD>
+      <TD>同上，如果小于两位数，前面补零。</TD></TR>
+    <TR>
+      <TD align=middle>yyy</TD>
+      <TD>将年份表示为三位数字。如果少于三位数，前面补零。</TD></TR>
+    <TR>
+      <TD align=middle>yyyy</TD>
+      <TD>将年份表示为四位数字。如果少于四位数，前面补零。</TD></TR>
+    <TR>
+      <TD align=middle>M</TD>
+      <TD>将月份表示为从 1 至 12 的数字</TD></TR>
+    <TR>
+      <TD align=middle>MM</TD>
+      <TD>同上，如果小于两位数，前面补零。</TD></TR>
+    <TR>
+      <TD align=middle>d</TD>
+      <TD>将月中日期表示为从 1 至 31 的数字。</TD></TR>
+    <TR>
+      <TD align=middle>dd</TD>
+      <TD>同上，如果小于两位数，前面补零。</TD></TR>
+    <TR>
+      <TD align=middle>H </TD>
+      <TD>将小时表示为从 0 至 23 的数字。</TD></TR>
+    <TR>
+      <TD align=middle>HH</TD>
+      <TD>同上，如果小于两位数，前面补零。</TD></TR>
+    <TR>
+      <TD align=middle>m</TD>
+      <TD>将分钟表示为从 0 至 59 的数字。</TD></TR>
+    <TR>
+      <TD align=middle>mm</TD>
+      <TD>同上，如果小于两位数，前面补零。</TD></TR>
+    <TR>
+      <TD align=middle>s</TD>
+      <TD>将秒表示为从 0 至 59 的数字。</TD></TR>
+    <TR>
+      <TD align=middle>ss</TD>
+      <TD>同上，如果小于两位数，前面补零。</TD></TR>
+    <TR>
+      <TD align=middle>w</TD>
+      <TD>返回星期对应的数字 0 (星期天) - 6 (星期六) 。</TD></TR>
+    <TR>
+      <TD align=middle>D</TD>
+      <TD>返回星期的缩写 一 至 六 (英文状态下 Sun to Sat) 。</TD></TR>
+    <TR>
+      <TD align=middle>W</TD>
+      <TD>返回周对应的数字 (1 - 53) 。</TD></TR>
+    <TR>
+      <TD align=middle>WW</TD>
+      <TD>同上，如果小于两位数，前面补零 (01 - 53) 。</TD></TR></TBODY></TABLE><BR>示例<BR>
+  <TABLE cellSpacing=1 width="100%" bgColor=#000000 border=0>
+    <TBODY>
+    <TR>
+      <TH width=191>格式字符串</TH>
+      <TH width=460>值</TH></TR>
+    <TR>
+      <TD>yyyy-MM-dd HH:mm:ss</TD>
+      <TD>2008-03-12 19:20:00</TD></TR>
+    <TR>
+      <TD>yy年M月</TD>
+      <TD>08年3月</TD></TR>
+    <TR>
+      <TD>yyyyMMdd</TD>
+      <TD>20080312</TD></TR>
+    <TR>
+      <TD>今天是:yyyy年M年d HH时mm分 </TD>
+      <TD>今天是:2008年3月12日 19时20分</TD></TR>
+    <TR>
+      <TD>H:m:s</TD>
+      <TD>19:20:0</TD></TR>
+    <TR>
+      <TD>y年</TD>
+      <TD>8年</TD></TR></TBODY></TABLE>
+  <DIV>
+  <H4>示例 2-4-1: 年月日时分秒</H4>
+  <P><INPUT class=Wdate id=d241 style="WIDTH: 300px" 
+  onfocus="WdatePicker({dateFmt:'yyyy年MM月dd日 HH时mm分ss秒'})"> <BR>&lt;input 
+  type="text" id="d241" onfocus="WdatePicker({<SPAN 
+  class=STYLE2>dateFmt:</SPAN><SPAN class=STYLE1>'yyyy年MM月dd日 
+  HH时mm分ss秒'</SPAN>})" class="Wdate" style="width:300px"/&gt;</P></DIV>
+  <DIV>
+  <H4>示例 2-4-2 时分秒</H4>
+  <P><INPUT class=Wdate id=d242 
+  onfocus="WdatePicker({skin:'whyGreen',dateFmt:'H:mm:ss'})"> <BR>&lt;input 
+  type="text" id="d242" onfocus="WdatePicker({skin:'whyGreen',<SPAN 
+  class=STYLE2>dateFmt:</SPAN><SPAN class=STYLE1>'H:mm:ss'</SPAN>})" 
+  class="Wdate"/&gt;<BR><BR><SPAN 
+  class=STYLE1>注意:</SPAN>这里提前使用了皮肤(skin)属性,所以你会看到一个不同的皮肤,皮肤属性详见<A 
+  href="http://www.my97.net/dp/demo/resource/main.asp#">自定义和动态切换皮肤</A> 
+</P></DIV>
+  <DIV>
+  <H4>示例 2-4-3 年月</H4>
+  <P><INPUT class=Wdate id=d243 
+  onfocus="WdatePicker({skin:'whyGreen',dateFmt:'yyyy年MM月'})"> <BR>&lt;input 
+  type="text" id="d243" onfocus="WdatePicker({skin:'whyGreen',<SPAN 
+  class=STYLE2>dateFmt:</SPAN><SPAN class=STYLE1>'yyyy年MM月'</SPAN>})" 
+  class="Wdate"/&gt;</P></DIV>
+  <DIV>
+  <H4>示例 2-4-4 取得系统可识别的日期值<SPAN class=STYLE1>(重要)</SPAN></H4>
+  <P>类似于 1999年7月5日 这样的日期是不能够被系统识别的,他必须转换为能够识别的类型如 1999-07-05 <BR><BR><INPUT 
+  class=Wdate id=d244 onfocus="WdatePicker({dateFmt:'yyyy年M月d日',vel:'d244_2'})"> 
+  真实的日期值是: <INPUT id=d244_2> <BR>&lt;input id="d244" type="text" class="Wdate" 
+  onfocus="WdatePicker(<SPAN class=STYLE2>{dateFmt:</SPAN><SPAN 
+  class=STYLE1>'yyyy年M月d日'</SPAN>,<SPAN class=STYLE2>vel:</SPAN><SPAN 
+  class=STYLE1>'d244_2'</SPAN>})"/&gt;<BR>&lt;input id="<SPAN 
+  class=STYLE1>d244_2</SPAN>" type="text" /&gt;<BR><BR><SPAN 
+  class=STYLE1>注意:</SPAN>在实际应用中,一般会把vel指定为一个<SPAN 
+  class=STYLE2>hidden控件</SPAN>,这里是为了把真实值展示出来,所以使用文本框<BR><SPAN 
+  class=STYLE1>关键属性:</SPAN> <SPAN class=STYLE2>vel</SPAN> 
+  指定一个控件或控件的ID,必须具有value属性(如input),用于存储真实值(也就是realDateFmt和realTimeFmt格式化后的值)</P></DIV>
+  <LI>编辑功能 <A id=m225 name=m225></A>
+  <P>不知道您是否已经注意到,当日期框里面有值时,右下角的按钮会变成更新,修改完某个属性后,只要点击这个按钮就可以实现时间和日期的编辑</P>
+  <DIV>
+  <H4>示例2-5 日期和时间的编辑演示</H4>
+  <P>您可以尝试对下面框中的月份改为1,然后点击<SPAN class=STYLE2>更新</SPAN>,你会发现日期由 2000-<SPAN 
+  class=STYLE1>02</SPAN>-29 01:00:00 变为 2000-<SPAN class=STYLE1>01</SPAN>-29 
+  01:00:00<BR><INPUT class=Wdate style="WIDTH: 200px" 
+  onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" 
+  value="2000-02-29 01:00:00"> </P></DIV>
+  <LI>自动纠错功能 <A id=m226 name=m226></A>
+  <P>纠错处理可设置为3种模式:提示(默认) 自动纠错 
+  标记,当日期框中的值不符合格式时,系统会尝试自动修复,如果修复失败会根据您设置的纠错处理模式进行处理,错误判断功能非常智能它可以保证用户输入的值是一个合法的值</P>
+  <DIV>
+  <H4>示例2-6-1 不合法的日期演示</H4>
+  <P>请在下面的日期框中<SPAN class=STYLE2>填入一个不合法的日期(如:1997-02-29)</SPAN>,再<SPAN 
+  class=STYLE2>尝试离开焦点</SPAN><BR>使用默认容错模式 <SPAN class=STYLE2>提示模式</SPAN> 
+  errDealMode = 0 在输入错误日期时,会先<SPAN class=STYLE2>提示</SPAN> <BR><INPUT class=Wdate 
+  id=d261 onclick=WdatePicker()> <BR><BR><SPAN 
+  class=STYLE1>注意:</SPAN>1997年不是闰年哦</P></DIV>
+  <DIV>
+  <H4>示例2-6-2 超出日期限制范围的日期也被认为是一个不合法的日期</H4>
+  <P>最大日期是2000-01-10 ,如果在下框中填入的日期 大于 2000-01-10(如2000-01-12)也会被认为是不合法的日期 
+  <BR><SPAN class=STYLE2>自动纠错模式</SPAN> errDealMode = 1 在输入错误日期时,<SPAN 
+  class=STYLE2>自动恢复前一次正确的值</SPAN><BR><INPUT class=Wdate 
+  onfocus="WdatePicker({errDealMode:1,maxDate:'2000-01-10'})" name=text> 
+  </P></DIV>
+  <DIV>
+  <H4>示例2-6-3 使用无效天和无效日期功能限制的日期也被认为是一个不合法的日期</H4>
+  <P>如:<BR>2008-02-20 无效日期限制<BR>2008-02-02 2008-02-09 2008-02-16 2008-02-23 
+  无效天限制<BR>都是无效日期<BR>您可以尝试在下框中输入这些日期,并离开焦点<BR><BR><SPAN class=STYLE2>标记模式</SPAN> 
+  errDealMode = 2 在输入错误日期时,<SPAN 
+  class=STYLE2>不做提示和更改,只是做一个标记,但此时日期框不会马上隐藏</SPAN><BR><INPUT class=Wdate 
+  onfocus="WdatePicker({errDealMode:2,maxDate:'2010-01-10',disabledDays:[6],disabledDates:['2008-02-20']})" 
+  value=2008-02-12 name=text2> <BR><BR><SPAN 
+  class=STYLE1>注意:</SPAN>标记类:WdateFmtErr是在skin目录下WdatePicker.css中定义的</P></DIV>
+  <LI>跨无限级框架显示 <A id=m227 name=m227></A>
+  <P>无论你把日期控件放在哪里,你都不需要担心会被外层的iframe所遮挡进而影响客户体验,因为My97日期控件是可以跨无限级框架显示的</P>
+  <DIV>
+  <H4>示例2-7 跨无限级框架演示</H4>
+  <P>可无限跨越框架iframe,无论怎么嵌套框架都不必担心了,即使有滚动条也不怕</P></DIV>
+  <LI>民国年日历和其他特殊日历 <A id=m228 name=m228></A>
+  <P>当年份格式设置为yyy格式时,利用年份差量属性yearOffset(默认值1911民国元年),可实现民国年日历和其他特殊日历</P>
+  <DIV>
+  <H4>示例2-8 民国年演示</H4>
+  <P><INPUT id=d28 onclick="WdatePicker({dateFmt:'yyy/MM/dd'})"> <BR>&lt;input 
+  type="text" id="d28" onClick="WdatePicker({<SPAN 
+  class=STYLE2>dateFmt:</SPAN><SPAN 
+  class=STYLE1>'yyy/MM/dd'</SPAN>})"/&gt;<BR><BR><SPAN 
+  class=STYLE1>注意:</SPAN>年份格式设置成yyy时,真正的日期将会减去一个差量<SPAN 
+  class=STYLE2>yearOffset(默认值为:1911)</SPAN>,如果是民国年使用默认值即可无需另外配置,如果是其他的差量,可以通过参数的形式配置</P></DIV>
+  <LI>为编程带来方便 <A id=m229 name=m229></A>
+  <P>如果el的值是this,可省略,即所有的el:this都可以不写 <BR>日期框设置为disabled时,禁止更改日期(不弹出选择框) 
+  <BR>如果没有定义onpicked事件,自动触发文本框的onchange事件 
+  <BR>如果没有定义oncleared事件,清空时,自动触发onchange事件</P>
+  <LI>其他属性 <A id=m22a name=m22a></A>
+  <P>设置readOnly属性,可指定日期框是否只读 <BR>设置highLineWeekDay属性,可指定是否高亮周末 
+  <BR>设置isShowOthers属性,可指定是否显示其他月的日期 
+<BR>加上class="Wdate"就会在选择框右边出现日期图标</P></LI></OL>
+<H3>3. 多语言和自定义皮肤<A id=m23 name=m23></A></H3><BR>
+<OL>
+  <LI>多语言支持 <A id=m231 name=m231></A>
+  <P>通过lang属性,可以为每个日期控件单独配置语言,当然也可以通过WdatePicker.js配置全局的语言<BR>语言列表和语言安装说明详见<A 
+  href="http://www.my97.net/dp/demo/resource/main.asp#m32">语言配置</A></P>
+  <DIV>
+  <H4>示例3-1 多语言示例 </H4>
+  <P>繁体中文: <INPUT class=Wdate id=d311 onfocus="WdatePicker({lang:'zh-tw'})" 
+  name=text3> <BR>&lt;input id="d311" class="Wdate" type="text" 
+  onFocus="WdatePicker({<SPAN class=STYLE1>lang:</SPAN><SPAN 
+  class=STYLE2>'zh-tw'</SPAN>})"/&gt;</P>
+  <P>英文: <INPUT class=Wdate id=d312 onfocus="WdatePicker({lang:'en'})" 
+  name=text3> <BR>&lt;input id="d312" class="Wdate" type="text" 
+  onFocus="WdatePicker({<SPAN class=STYLE1>lang:</SPAN><SPAN 
+  class=STYLE2>'en'</SPAN>})"/&gt;</P>
+  <P>简体中文: <INPUT class=Wdate id=d313 onfocus="WdatePicker({lang:'zh-cn'})" 
+  name=text3> <BR>&lt;input id="d313" class="Wdate" type="text" 
+  onFocus="WdatePicker({<SPAN class=STYLE1>lang:</SPAN><SPAN 
+  class=STYLE2>'zh-cn'</SPAN>})"/&gt;<BR><BR><SPAN 
+  class=STYLE1>注意:</SPAN>默认情况lang='auto',即根据浏览器的语言自动选择语言.</P></DIV>
+  <LI>自定义和动态切换皮肤 <A id=m232 name=m232></A><A class=STYLE1 
+  href="http://www.my97.net/dp/skin.asp" target=_top>立刻转到皮肤中心</A> 
+  <P>通过skin属性,可以为每个日期控件单独配置皮肤,当然也可以通过WdatePicker.js配置全局的皮肤<BR>皮肤列表和皮肤安装说明详见<A 
+  href="http://www.my97.net/dp/demo/resource/main.asp#m33">皮肤配置</A></P>
+  <DIV>
+  <H4>示例3-2 皮肤演示</H4>
+  <P><B>默认皮肤default</B>: skin:'default'<BR><INPUT class=Wdate id=d321 
+  onfocus=WdatePicker()> <BR>&lt;input id="d321" class="Wdate" type="text" 
+  onfocus="WdatePicker()"/&gt;<BR><BR><SPAN 
+  class=STYLE1>注意:</SPAN>在WdatePicker里配置了skin='default',所以此处可省略,同理,如果你把WdatePicker里的skin配置成'whyGreen'那么在不指定皮肤的情况下都使用'whyGreen'皮肤了</P>
+  <P><BR><B>whyGreen皮肤</B>: skin:'whyGreen' <FONT 
+  color=#ff0000><BR></FONT><INPUT class=Wdate id=d322 
+  onfocus="WdatePicker({skin:'whyGreen'})"> <BR>&lt;input id="d322" 
+  class="Wdate" type="text" onfocus="WdatePicker({<SPAN 
+  class=STYLE2>skin:</SPAN><SPAN 
+  class=STYLE1>'whyGreen'</SPAN>})"/&gt;<BR><BR><SPAN 
+  class=STYLE1>注意:</SPAN>更多皮肤,请到<A href="http://www.my97.net/dp/skin.asp" 
+  target=_top>皮肤中心</A>下载</P></DIV></LI></OL>
+<H3>4. 日期范围限制<A id=m24 name=m24></A></H3>
+<OL>
+  <LI>静态限制<A id=m241 name=m241></A><BR><SPAN class=STYLE1>注意:日期格式必须与 realDateFmt 
+  和 realTimeFmt 一致</SPAN> 
+  <P>你可以给通过配置minDate(最小日期),maxDate(最大日期)为静态日期值,来限定日期的范围</P>
+  <DIV>
+  <H4>示例4-1-1 限制日期的范围是 2006-09-10到2008-12-20</H4>
+  <P><INPUT class=Wdate id=d411 
+  onfocus="WdatePicker({skin:'whyGreen',minDate:'2006-09-10',maxDate:'2008-12-20'})"><BR>&lt;input 
+  id="d411" class="Wdate" type="text" 
+  onfocus="WdatePicker({skin:'whyGreen',<SPAN class=STYLE2>minDate:</SPAN><SPAN 
+  class=STYLE1>'2006-09-10',</SPAN><SPAN class=STYLE2>maxDate:</SPAN><SPAN 
+  class=STYLE1>'2008-12-20'</SPAN>})"/&gt;</P></DIV>
+  <DIV>
+  <H4>示例4-1-2 限制日期的范围是 2008-3-8 11:30:00 到 2008-3-10 20:59:30</H4>
+  <P><INPUT class=Wdate id=d412 
+  onfocus="WdatePicker({skin:'whyGreen',dateFmt:'yyyy-MM-dd HH:mm:ss',minDate:'2008-03-08 11:30:00',maxDate:'2008-03-10 20:59:30'})" 
+  value="2008-03-09 11:00:00"><BR>&lt;input type="text" class="Wdate" id="d412" 
+  onfocus="WdatePicker({skin:'whyGreen',<SPAN class=STYLE2>dateFmt:</SPAN><SPAN 
+  class=STYLE1>'yyyy-MM-dd HH:mm:ss',</SPAN><SPAN 
+  class=STYLE2>minDate:</SPAN><SPAN class=STYLE1>'2008-03-08 
+  11:30:00',</SPAN><SPAN class=STYLE2>maxDate:</SPAN><SPAN 
+  class=STYLE1>'2008-03-10 20:59:30'</SPAN>})" value="2008-03-09 
+  11:00:00"/&gt;</P></DIV>
+  <DIV>
+  <H4>示例4-1-3 限制日期的范围是 2008年2月 到 2008年10月</H4>
+  <P><INPUT class=Wdate id=d413 
+  onfocus="WdatePicker({dateFmt:'yyyy年M月',minDate:'2008-2',maxDate:'2008-10'})"><BR>&lt;input 
+  type="text" class="Wdate" id="d413" onfocus="WdatePicker({<SPAN 
+  class=STYLE2>dateFmt:</SPAN><SPAN class=STYLE1>'yyyy年M月',</SPAN><SPAN 
+  class=STYLE2>minDate:</SPAN><SPAN class=STYLE1>'2008-2',</SPAN><SPAN 
+  class=STYLE2>maxDate:</SPAN><SPAN 
+  class=STYLE1>'2008-10'</SPAN>})"/&gt;</P></DIV>
+  <DIV>
+  <H4>示例4-1-4 限制日期的范围是 8:00:00 到 11:30:00</H4>
+  <P><INPUT class=Wdate id=d414 
+  onfocus="WdatePicker({dateFmt:'H:mm:ss',minDate:'8:00:00',maxDate:'11:30:00'})"><BR>&lt;input 
+  type="text" class="Wdate" id="d414" onfocus="WdatePicker({<SPAN 
+  class=STYLE2>dateFmt:</SPAN><SPAN class=STYLE1>'H:mm:ss',</SPAN><SPAN 
+  class=STYLE2>minDate:</SPAN><SPAN class=STYLE1>'8:00:00',</SPAN><SPAN 
+  class=STYLE2>maxDate:</SPAN><SPAN 
+  class=STYLE1>'11:30:00'</SPAN>})"/&gt;</P></DIV>
+  <LI>动态限制<A id=m242 name=m242></A><BR><SPAN class=STYLE1>注意:日期格式必须与 realDateFmt 
+  和 realTimeFmt 一致</SPAN> 
+  <P>你可以通过系统给出的动态变量,如%y(当前年),%M(当前月)等来限度日期范围,你还可以通过#{}进行表达式运算,如:#{%d+1}:表示明天<BR><BR>动态变量表</P>
+  <TABLE cellSpacing=1 cellPadding=3 width=335 bgColor=#000000 border=0>
+    <TBODY>
+    <TR>
+      <TH width=62>格式</TH>
+      <TH width=258>说明</TH></TR>
+    <TR>
+      <TD align=middle>%y </TD>
+      <TD>当前年</TD></TR>
+    <TR>
+      <TD align=middle>%M </TD>
+      <TD>当前月</TD></TR>
+    <TR>
+      <TD align=middle>%d </TD>
+      <TD>当前日</TD></TR>
+    <TR>
+      <TD align=middle>%ld</TD>
+      <TD>本月最后一天</TD></TR>
+    <TR>
+      <TD align=middle>%H </TD>
+      <TD>当前时</TD></TR>
+    <TR>
+      <TD align=middle>%m </TD>
+      <TD>当前分</TD></TR>
+    <TR>
+      <TD align=middle>%s </TD>
+      <TD>当前秒</TD></TR>
+    <TR>
+      <TD align=middle>#{}</TD>
+      <TD>运算表达式,如:#{%d+1}:表示明天</TD></TR>
+    <TR>
+      <TD align=middle>#F{}</TD>
+      <TD>{}之间是函数可写自定义JS代码</TD></TR></TBODY></TABLE>
+  <DIV>
+  <H4>示例4-2-1 只能选择今天以前的日期(包括今天)</H4>
+  <P><INPUT class=Wdate id=d421 
+  onfocus="WdatePicker({skin:'whyGreen',maxDate:'%y-%M-%d'})"><BR>&lt;input 
+  id="d421" class="Wdate" type="text" 
+  onfocus="WdatePicker({skin:'whyGreen',<SPAN class=STYLE2>maxDate:</SPAN><SPAN 
+  class=STYLE1>'%y-%M-%d'</SPAN>})"/&gt;</P></DIV>
+  <DIV>
+  <H4>示例4-2-2 <SPAN class=STYLE2>使用了运算表达式</SPAN> 只能选择今天以后的日期(不包括今天)</H4>
+  <P><INPUT class=Wdate id=d422 
+  onfocus="WdatePicker({minDate:'%y-%M-#{%d+1}'})"><BR>&lt;input id="d422" 
+  class="Wdate" type="text" onfocus="WdatePicker({<SPAN 
+  class=STYLE2>minDate:</SPAN><SPAN 
+  class=STYLE1>'%y-%M-#{%d+1}'</SPAN>})"/&gt;</P></DIV>
+  <DIV>
+  <H4>示例4-2-3 只能选择本月的日期1号至本月最后一天</H4>
+  <P><INPUT class=Wdate id=d423 
+  onfocus="WdatePicker({minDate:'%y-%M-01',maxDate:'%y-%M-%ld'})"><BR>&lt;input 
+  id="d423" class="Wdate" type="text" onfocus="WdatePicker({<SPAN 
+  class=STYLE2>minDate:</SPAN><SPAN class=STYLE1>'%y-%M-01',</SPAN><SPAN 
+  class=STYLE2>maxDate:</SPAN><SPAN 
+  class=STYLE1>'%y-%M-%ld'</SPAN>})"/&gt;</P></DIV>
+  <DIV>
+  <H4>示例4-2-4 只能选择今天7:00:00至明天21:00:00的日期</H4>
+  <P><INPUT class=Wdate id=d424 
+  onfocus="WdatePicker({dateFmt:'yyyy-M-d H:mm:ss',minDate:'%y-%M-%d 7:00:00',maxDate:'%y-%M-#{%d+1} 21:00:00'})"><BR>&lt;input 
+  id="d424" class="Wdate" type="text" onfocus="WdatePicker({dateFmt:'yyyy-M-d 
+  H:mm:ss',<SPAN class=STYLE2>minDate:</SPAN><SPAN class=STYLE1>'%y-%M-%d 
+  7:00:00',</SPAN><SPAN class=STYLE2>maxDate:</SPAN><SPAN 
+  class=STYLE1>'%y-%M-#{%d+1} 21:00:00'</SPAN>})"/&gt;</P></DIV>
+  <DIV>
+  <H4>示例4-2-5 <SPAN class=STYLE2>使用了运算表达式</SPAN> 只能选择 20小时前 至 30小时后 的日期</H4>
+  <P><INPUT class=Wdate id=d425 
+  onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm',minDate:'%y-%M-%d #{%H-20}:%m:%s',maxDate:'%y-%M-%d #{%H+30}:%m:%s'})"><BR>&lt;input 
+  id="d425" class="Wdate" type="text" onClick="WdatePicker({dateFmt:'yyyy-MM-dd 
+  HH:mm',<SPAN class=STYLE2>minDate:</SPAN><SPAN class=STYLE1>'%y-%M-%d 
+  #{%H-20}:%m:%s'</SPAN>,<SPAN class=STYLE2>maxDate:</SPAN><SPAN 
+  class=STYLE1>'%y-%M-%d #{%H+30}:%m:%s'</SPAN>})"/&gt;</P></DIV>
+  <LI>脚本自定义限制<A id=m243 name=m243></A><BR><SPAN class=STYLE1>注意:日期格式必须与 
+  realDateFmt 和 realTimeFmt 一致</SPAN>
+  <P>系统提供了$dp.$D和$dp.$DV这两个API来辅助你进行日期运算,此外你还可以通过在 #F{} 
+  中填入你自定义的脚本,做任何你想做的日期限制</P>
+  <DIV>
+  <H4>示例4-3-1 前面的日期不能大于后面的日期且两个日期都不能大于 2020-10-01</H4>
+  <P>合同有效期从 <INPUT class=Wdate id=d4311 
+  onfocus="WdatePicker({maxDate:'#F{$dp.$D(\'d4312\')||\'2020-10-01\'}'})"> 到 
+  <INPUT class=Wdate id=d4312 
+  onfocus="WdatePicker({minDate:'#F{$dp.$D(\'d4311\')}',maxDate:'2020-10-01'})"> 
+  <BR>&lt;input id="d4311" class="Wdate" type="text" onFocus="WdatePicker({<SPAN 
+  class=STYLE2>maxDate:</SPAN><SPAN 
+  class=STYLE1>'#F{$dp.$D(\'d4312\')||\'2020-10-01\'}'</SPAN>})"/&gt; 
+  <BR>&lt;input id="d4312" class="Wdate" type="text" onFocus="WdatePicker({<SPAN 
+  class=STYLE2>minDate:</SPAN><SPAN 
+  class=STYLE1>'#F{$dp.$D(\'d4311\')}'</SPAN>,<SPAN 
+  class=STYLE2>maxDate:'2020-10-01'</SPAN>})"/&gt;<BR><BR><SPAN 
+  class=STYLE1>注意:</SPAN><BR>两个日期的日期格式必须相同<BR><BR>$dp.$ 相当于 
+  document.getElementById 函数.<BR>那么为什么里面的 ' 使用 \' 呢? 那是因为 " 和 ' 
+  都被外围的函数使用了,故使用转义符 \ ,否则会提示JS语法错误.<BR>所以您在其他地方使用时注意把 \' 改成 " 或者 ' 
+  来使用.<BR><BR>#F{$dp.$D(\'d4312\')||\'2020-10-01\'} 表示当 d4312 为空时, 采用 2020-10-01 
+  的值作为最大值<BR></P></DIV>
+  <DIV>
+  <H4>示例4-3-2 前面的日期+3天 不能大于 后面的日期</H4>
+  <P>日期从 <INPUT class=Wdate id=d4321 
+  onfocus="WdatePicker({maxDate:'#F{$dp.$D(\'d4322\',{d:-3});}'})"> 到 <INPUT 
+  class=Wdate id=d4322 
+  onfocus="WdatePicker({minDate:'#F{$dp.$D(\'d4321\',{d:3});}'})"> <BR>&lt;input 
+  type="text" class="Wdate" id="d4321" onFocus="WdatePicker({<SPAN 
+  class=STYLE2>maxDate:</SPAN><SPAN 
+  class=STYLE1>'#F{$dp.$D(\'d4322\',{d:-3});}'</SPAN>})"/&gt;<BR>&lt;input 
+  type="text" class="Wdate" id="d4322" onFocus="WdatePicker({<SPAN 
+  class=STYLE2>minDate:</SPAN><SPAN 
+  class=STYLE1>'#F{$dp.$D(\'d4321\',{d:3});}'</SPAN>})"/&gt;<BR><BR>使用 <SPAN 
+  class=STYLE2>$dp.$D 函数</SPAN> 可以将日期框中的值,加上定义的日期差量:<BR>两个参数: <SPAN 
+  class=STYLE1>id={字符类型}需要处理的文本框的id值</SPAN> , <SPAN 
+  class=STYLE1>obj={对象类型}日期差量</SPAN><BR><SPAN 
+  class=STYLE2>日期差量用法:</SPAN><BR>属性y,M,d,H,m,s分别代表年月日时分秒<BR>如 
+  <BR>为空时,表示直接取值,不做差量(示例4-3-1中的参数就是空的)<BR>{M:5,d:7} 表示 五个月零7天<BR>{y:1,d:-3} 表示 
+  1年少3天<BR>{d:1,H:1} 表示一天多1小时</P></DIV>
+  <DIV>
+  <H4>示例4-3-3 前面的日期+3月零2天 不能大于 后面的日期 且 前面日期都不能大于 2020-4-3减去3月零2天 后面日期 不能大于 
+  2020-4-3</H4>
+  <P>住店日期从 <INPUT class=Wdate id=d4331 
+  onfocus="WdatePicker({maxDate:'#F{$dp.$D(\'d4332\',{M:-3,d:-2})||$dp.$DV(\'2020-4-3\',{M:-3,d:-2})}'})"> 
+  到 <INPUT class=Wdate id=d4332 
+  onfocus="WdatePicker({minDate:'#F{$dp.$D(\'d4331\',{M:3,d:2});}',maxDate:'2020-4-3'})"> 
+  <BR>&lt;input type="text" class="Wdate" id="d4331" onFocus="WdatePicker({<SPAN 
+  class=STYLE2>maxDate:</SPAN>'<SPAN 
+  class=STYLE1>#F{$dp.$D(\'d4332\',{M:-3,d:-2})||$dp.$DV(\'2020-4-3\',{M:-3,d:-2})}</SPAN>'})"/&gt;<BR>&lt;input 
+  type="text" class="Wdate" id="d4332" onFocus="WdatePicker({<SPAN 
+  class=STYLE2>minDate:</SPAN>'<SPAN 
+  class=STYLE1>#F{$dp.$D(\'d4331\',{M:3,d:2});}</SPAN>',<SPAN 
+  class=STYLE1>maxDate:</SPAN>'<SPAN 
+  class=STYLE1>2020-4-3</SPAN>'})"/&gt;<BR><BR><SPAN 
+  class=STYLE1>注意:<BR></SPAN>#F{$dp.$D(\'d4332\',{M:-3,d:-2}) || 
+  $dp.$DV(\'2020-4-3\',{M:-3,d:-2})}<BR>表示当 d4332 为空时, 采用 
+  $dp.$DV(\'2020-4-3\',{M:-3,d:-2})} 的值作为最大值</P>
+  <P>使用 <SPAN class=STYLE2>$dp.$DV 函数</SPAN> 可以将显式传入的值,加上定义的日期差量:<BR>两个参数: <SPAN 
+  class=STYLE1>value={字符类型}需要处理的值</SPAN> , <SPAN 
+  class=STYLE1>obj={对象类型}日期差量</SPAN><BR>用法同上面的 <SPAN class=STYLE2>$dp.$D</SPAN> 
+  类似,如 $dp.$DV(\'2020-4-3\',{M:-3,d:-2}) 表示 2020-4-3减去3月零2天</P></DIV>
+  <DIV>
+  <H4>示例4-3-4 发挥你的JS才能,定义任何你想要的日期限制</H4>
+  <P>自动转到随机生成的一天,当然,此示例没有实际的用途,只是为演示目的<BR>
+  <SCRIPT>
+	//返回一个随机的日期
+	function randomDate(){
+		var Y = 2000 + Math.round(Math.random() * 10);
+		var M = 1 + Math.round(Math.random() * 11);
+		var D = 1 + Math.round(Math.random() * 27);
+		return Y+'-'+M+'-'+D;
+	}
+            </SCRIPT>
+  <INPUT class=Wdate id=d434 
+  onfocus="var date=randomDate();WdatePicker({minDate:date,maxDate:date})"> 
+  <BR>&lt;script&gt;<BR>//返回一个随机的日期<BR>function randomDate(){<BR>var Y = 2000 + 
+  Math.round(Math.random() * 10);<BR>var M = 1 + Math.round(Math.random() * 
+  11);<BR>var D = 1 + Math.round(Math.random() * 27);<BR>return 
+  Y+'-'+M+'-'+D;<BR>}<BR>&lt;/script&gt;<BR>&lt;input type="text" class="Wdate" 
+  id="d434" onFocus="<SPAN class=STYLE1>var 
+  date=randomDate();WdatePicker({minDate:date,maxDate:date})</SPAN>"/&gt;</P></DIV>
+  <LI>无效天<A id=m244 name=m244></A> 
+  <P>可以使用此功能禁用周日至周六所对应的日期,相关属性:disabledDays (0至6 分别代表 周日至周六)</P>
+  <DIV>
+  <H4>示例4-4-1 禁用 周六 所对应的日期</H4>
+  <P><INPUT class=Wdate id=d441 
+  onfocus=WdatePicker({disabledDays:[6]})><BR>&lt;input id="d441" type="text" 
+  class="Wdate" onFocus="WdatePicker({<SPAN 
+  class=STYLE2>disabledDays:</SPAN><SPAN 
+  class=STYLE1>[6]</SPAN>})"/&gt;</P></DIV>
+  <DIV>
+  <H4>示例4-4-2 通过position属性,自定义弹出位置</H4>
+  <P><INPUT class=Wdate id=d442 
+  onfocus=WdatePicker({disabledDays:[0,6]})><BR>&lt;input id="d442" type="text" 
+  class="Wdate" onFocus="WdatePicker({<SPAN 
+  class=STYLE2>disabledDays:</SPAN><SPAN 
+  class=STYLE1>[0,6]</SPAN>})"/&gt;</P></DIV>
+  <LI>无效日期<A id=m245 name=m245></A><BR><SPAN class=STYLE1>注意:日期格式必须与 realDateFmt 
+  和 realTimeFmt 一致</SPAN>
+  <P>可以使用此功能禁用,所指定的一个或多个日期,只要你熟悉正则表达式,你可以尽情发挥<BR><BR><SPAN 
+  class=STYLE2>用法(正则匹配):</SPAN> 
+  <BR>如果你熟悉正则表达式,会很容易理解下面的匹配用法<BR>如果不熟悉,可以参考下面的常用示例 
+  <BR>['2008-02-01','2008-02-29'] 表示禁用 2008-02-01 和 
+  2008-02-29<BR>['2008-..-01','2008-02-29'] 表示禁用 2008-所有月份-01 和 
+  2008-02-29<BR>['200[0-8]]-02-01','2008-02-29'] 表示禁用 [2000至2008]-02-01 和 
+  2008-02-29<BR>['^2006'] 表示禁用 2006年的所有日期 </P>
+  <P>此外,您还可以使用 %y %M %d %H %m %s 等变量, 用法同动态日期限制 <SPAN 
+  class=STYLE1>注意:%ld不能使用</SPAN><BR>['....-..-01','%y-%M-%d'] 表示禁用 
+  所有年份和所有月份的第一天和今天 <BR>['%y-%M-#{%d-1}','%y-%M-#{%d+1}'] 表示禁用 昨天和明天</P>
+  <P>当然,除了可以限制日期以外,您还可以限制时间<BR>['....-..-.. 10\:00\:00'] 表示禁用 每天10点 (注意 <SPAN 
+  class=STYLE2>:</SPAN> 需要 使用 <SPAN class=STYLE2>\:</SPAN> ) </P>
+  <P>不再多举例了,尽情发挥你的正则才能吧!</P>
+  <DIV>
+  <H4>示例4-5-1 禁用 每个月份的 5日 15日 25日</H4>
+  <P><INPUT class=Wdate id=d451 
+  onfocus="WdatePicker({disabledDates:['5$']})"><BR>&lt;input id="d451" 
+  type="text" class="Wdate" onFocus="WdatePicker({<SPAN 
+  class=STYLE2>disabledDates:</SPAN><SPAN 
+  class=STYLE1>['5$']</SPAN>})"/&gt;<BR><BR><SPAN class=STYLE1>注意 :</SPAN><SPAN 
+  class=STYLE2>'5$'</SPAN> 表示以 5 结尾 注意 <SPAN class=STYLE2>$</SPAN> 的用法 
+</P></DIV>
+  <DIV>
+  <H4>示例4-5-2 禁用 所有早于2000-01-01的日期</H4>
+  <P><INPUT class=Wdate id=d452 
+  onfocus="WdatePicker({disabledDates:['^19']})"><BR>&lt;input id="d452" 
+  type="text" class="Wdate" onFocus="WdatePicker({<SPAN 
+  class=STYLE2>disabledDates:</SPAN><SPAN 
+  class=STYLE1>['^19']</SPAN>})"/&gt;<BR><BR><SPAN class=STYLE1>注意:</SPAN><SPAN 
+  class=STYLE2>'^19'</SPAN> 表示以 19 开头 注意 <SPAN class=STYLE2>^</SPAN> 的用法 
+  <BR>当然,可以使用minDate实现类似的功能 这里主要是 在演示 ^ 的用法</P></DIV>
+  <DIV>
+  <H4>示例4-5-3 配合min/maxDate使用,可以把可选择的日期分隔成多段</H4>
+  <P>本示例本月可用日期分隔成五段 分别是: 1-3 8-10 16-24 26,27 29-月末<BR><INPUT class=Wdate 
+  id=d453 
+  onfocus="WdatePicker({minDate:'%y-%M-01',maxDate:'%y-%M-%ld',disabledDates:['0[4-7]$','1[1-5]$','2[58]$']})"><BR>&lt;input 
+  id="d453" type="text" class="Wdate" onFocus="WdatePicker({<SPAN 
+  class=STYLE2>minDate:</SPAN><SPAN class=STYLE1>'%y-%M-01'</SPAN>,<SPAN 
+  class=STYLE2>maxDate:</SPAN><SPAN class=STYLE1>'%y-%M-%ld'</SPAN>,<SPAN 
+  class=STYLE2>disabledDates:</SPAN><SPAN 
+  class=STYLE1>['0[4-7]$','1[1-5]$','2[58]$']</SPAN>})"/&gt;</P></DIV>
+  <DIV>
+  <H4>示例4-5-4 <SPAN class=STYLE2>min/maxDate disabledDays disabledDates 
+  配合使用</SPAN> 即使在要求非常苛刻的情况下也能满足需求</H4>
+  <P><INPUT class=Wdate id=d454 
+  onfocus="WdatePicker({minDate:'%y-%M-01',maxDate:'%y-%M-%ld',disabledDates:['0[4-7]$','1[1-5]$','2[58]$'],disabledDays:[1,3,6]})"><BR>&lt;input 
+  id="d454" type="text" class="Wdate" onFocus="WdatePicker({<SPAN 
+  class=STYLE2>minDate:</SPAN><SPAN class=STYLE1>'%y-%M-01'</SPAN>,<SPAN 
+  class=STYLE2>maxDate:</SPAN><SPAN class=STYLE1>'%y-%M-%ld'</SPAN>,<SPAN 
+  class=STYLE2>disabledDates:</SPAN><SPAN 
+  class=STYLE1>['0[4-7]$','1[1-5]$','2[58]$']</SPAN>,<SPAN 
+  class=STYLE2>disabledDays:</SPAN><SPAN 
+  class=STYLE1>[1,3,6]</SPAN>})"/&gt;</P></DIV>
+  <DIV>
+  <H4>示例4-5-5 禁用前一个小时和后一个小时内所有时间 使用 %y %M %d %H %m %s 等变量</H4>
+  <P>鼠标点击 小时输入框时,你会发现当然时间对应的前一个小时和后一个小时是灰色的<BR><INPUT class=Wdate id=d2a25 
+  onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',disabledDates:['%y-%M-%d #{%H-1}\:..\:..','%y-%M-%d #{%H+1}\:..\:..']})"> 
+  <BR>&lt;input id="d2a25" type="text" class="Wdate" 
+  onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',<SPAN 
+  class=STYLE2>disabledDates:</SPAN><SPAN class=STYLE1>['%y-%M-%d 
+  #{%H-1}\:..\:..','%y-%M-%d #{%H+1}\:..\:..']</SPAN>})"/&gt; <BR><BR><SPAN 
+  class=STYLE1>注意:</SPAN>%y %M %d等详见<A 
+  href="http://www.my97.net/dp/demo/resource/main.asp#m242">动态变量表</A></P></DIV>
+  <DIV>
+  <H4>示例4-5-6 #F{}也是可以使用的</H4>
+  <P>本示例利用自定义函数 随机禁用0-23中的任何一个小时<BR>打开小时选择框,你会发现有一个小时被禁用的,而且每次禁用的小时都不同<BR><INPUT 
+  class=Wdate id=d456 
+  onfocus="WdatePicker({dateFmt:'HH:mm:ss',disabledDates:['#F{randomH()}']})">
+  <SCRIPT>
+function randomH(){
+//产生一个随机的数字 0-23 
+var H = Math.round(Math.random() * 23);
+if(H<10) H='0'+H;
+//返回 '^' + 数字
+return '^'+H;
+}
+</SCRIPT>
+   <BR>&lt;script&gt;<BR>function randomH(){<BR>//产生一个随机的数字 0-23 <BR>var H = 
+  Math.round(Math.random() * 23);<BR>if(H&lt;10) H='0'+H;<BR>//返回 '^' + 
+  数字<BR>return '^'+H;<BR>}<BR>&lt;/script&gt;<BR>&lt;input type="text" 
+  class="Wdate" id="d456" onFocus="WdatePicker({dateFmt:'HH:mm:ss',<SPAN 
+  class=STYLE2>disabledDates:</SPAN><SPAN 
+  class=STYLE1>['#F{randomH()}']</SPAN>})"/&gt;</P></DIV>
+  <LI>有效天与有效日期<A id=m246 name=m246></A> 
+  <P>使用无效天和无效日期可以很方便的禁用不可用的日期,但是在只需要启用少部分日期的情况下,有效天和有效日期的功能就非常适合了.<BR><SPAN 
+  class=STYLE1>关键属性:</SPAN> <SPAN class=STYLE2>opposite</SPAN> 默认为false, 
+  为true时,无效天和无效日期变成有效天和有效日期 </P>
+  <DIV>
+  <H4>示例4-6 只启用 每个月份的 5日 15日 25日</H4>
+  <P><INPUT class=Wdate id=d46 
+  onfocus="WdatePicker({opposite:true,disabledDates:['5$']})"><BR>&lt;input 
+  id="d46" type="text" class="Wdate" onFocus="WdatePicker({<SPAN 
+  class=STYLE2>opposite:</SPAN><SPAN class=STYLE1>true</SPAN>,<SPAN 
+  class=STYLE2>disabledDates:</SPAN><SPAN 
+  class=STYLE1>['5$']</SPAN>})"/&gt;<BR><BR><SPAN class=STYLE1>注意 :</SPAN><SPAN 
+  class=STYLE2>'5$'</SPAN> 表示以 5 结尾 注意 <SPAN class=STYLE2>$</SPAN> 的用法 
+  </P></DIV></LI></OL>
+<H3>5. 自定义事件<A id=m25 name=m25></A></H3>
+<OL>
+  <LI>自定义事件 <A id=m251 name=m251></A>
+  <P>如果你需要做一些附加的操作,你也不必担心,日期控件自带的自定义事件可以满足你的需求.此外,你还可以在自定义事件中调用提供的API库来做更多的运算和扩展,绝对可以通过很少的代码满足你及其个性化的需求.<BR><BR>注意下面几个重要的指针,将对你的编程带来很多便利<BR><SPAN 
+  class=STYLE1>this: 指向文本框<BR>dp: 指向$dp<BR>dp.cal: 
+  指向日期控件对象</SPAN><BR>注意:函数原型必须使用类似 <SPAN class=STYLE1>function(dp){} 
+  </SPAN>的模式,这样子,在函数内部才可以使用dp</P>
+  <LI>onpicking 和 onpicked 事件 <A id=m252 name=m252></A>
+  <DIV>
+  <H4>示例5-2-1 onpicking事件演示</H4>
+  <P><INPUT class=Wdate id=5421 
+  onfocus="WdatePicker({onpicking:function(dp){if(!confirm('日期框原来的值为: '+dp.cal.getDateStr()+', 要覆盖吗?')) return true;}})"> 
+  <BR>&lt;input type="text" id="5421" onFocus="WdatePicker({<SPAN 
+  class=STYLE2>onpicking:</SPAN><SPAN 
+  class=STYLE1>function(dp){if(!confirm('日期框原来的值为: '+dp.cal.getDateStr()+', 
+  要覆盖吗?')) return true;}</SPAN>})" class="Wdate"/&gt;<BR><BR><SPAN 
+  class=STYLE1>注意:</SPAN>dp.cal.getDateStr是一个<A 
+  href="http://www.my97.net/dp/demo/resource/main.asp#m5">内置函数</A></P></DIV>
+  <DIV>
+  <H4>示例5-2-2 使用onpicked实现日期选择联动</H4>
+  <P>选择第一个日期的时候,第二个日期选择框自动弹出<BR>日期从: <INPUT class=Wdate id=d5221 
+  onfocus="var d5222=$dp.$('d5222');WdatePicker({onpicked:function(){d5222.focus();},maxDate:'#F{$dp.$D(\'d5222\')}'})"> 
+  至 <INPUT class=Wdate id=d5222 
+  onfocus="WdatePicker({minDate:'#F{$dp.$D(\'d5221\')}'})"> <BR><SPAN 
+  class=STYLE1>注意:</SPAN>下面第一个控件代码的写法<BR>&lt;input id="<SPAN 
+  class=STYLE1>d5221</SPAN>" class="Wdate" type="text" onFocus="var 
+  d5222=$dp.$('d5222');WdatePicker({<SPAN class=STYLE2>onpicked:</SPAN><SPAN 
+  class=STYLE1>function(){d5222.focus();}</SPAN>,maxDate:'#F{$dp.$D(\'d5222\')}'})"/&gt;<BR>至<BR>&lt;input 
+  id="<SPAN class=STYLE1>d5222</SPAN>" class="Wdate" type="text" 
+  onFocus="WdatePicker({minDate:'#F{$dp.$D(\'d5221\')}'})"/&gt;<BR><BR><SPAN 
+  class=STYLE1>注意:</SPAN>$dp.$是一个<A 
+  href="http://www.my97.net/dp/demo/resource/main.asp#m5">内置函数</A>,相当于document.getElementById</P></DIV>
+  <DIV>
+  <H4>示例5-2-3 将选择的值拆分到文本框 </H4>
+  <P><INPUT id=d523_y size=5> 年 <INPUT id=d523_M size=3> 月 <INPUT id=d523_d 
+  size=3> 日 <INPUT id=d523_HH size=3> 时 <INPUT id=d523_mm size=3> 分 <INPUT 
+  id=d523_ss size=3> 秒 <INPUT id=d523> <IMG style="CURSOR: pointer" 
+  onclick="WdatePicker({el:'d523',dateFmt:'yyyy-MM-dd HH:mm:ss',onpicked:pickedFunc})" 
+  height=22 src="main.files/datePicker.gif" width=16 align=absMiddle>
+  <SCRIPT>
+			function pickedFunc(){
+				$dp.$('d523_y').value=$dp.cal.getP('y');
+				$dp.$('d523_M').value=$dp.cal.getP('M');
+				$dp.$('d523_d').value=$dp.cal.getP('d');
+				$dp.$('d523_HH').value=$dp.cal.getP('H');
+				$dp.$('d523_mm').value=$dp.cal.getP('m');
+				$dp.$('d523_ss').value=$dp.cal.getP('s');
+			}
+			</SCRIPT>
+   <BR>&lt;input type="text" id="d523_y" size="5"/&gt; 年<BR>&lt;input 
+  type="text" id="d523_M" size="3"/&gt; 月<BR>&lt;input type="text" id="d523_d" 
+  size="3"/&gt; 日<BR>&lt;input type="text" id="d523_HH" size="3"/&gt; 
+  时<BR>&lt;input type="text" id="d523_mm" size="3"/&gt; 分<BR>&lt;input 
+  type="text" id="d523_ss" size="3"/&gt; 秒 <BR>&lt;img 
+  onclick="WdatePicker({<SPAN class=STYLE2>el:</SPAN><SPAN 
+  class=STYLE1>'d523'</SPAN>,dateFmt:'yyyy-MM-dd HH:mm:ss',<SPAN 
+  class=STYLE2>onpicked:</SPAN><SPAN class=STYLE1>pickedFunc</SPAN>})" 
+  src="../../My97DatePicker/skin/datePicker.gif" width="16" height="22" 
+  align="absmiddle" style="cursor:pointer"/&gt;<BR><SPAN 
+  class=STYLE1>&lt;script&gt;</SPAN><BR>function 
+  pickedFunc(){<BR>$dp.$('d523_y').value=$dp.cal.getP('y');<BR>$dp.$('d523_M').value=$dp.cal.getP('M');<BR>$dp.$('d523_d').value=$dp.cal.getP('d');<BR>$dp.$('d523_HH').value=$dp.cal.getP('H');<BR>$dp.$('d523_mm').value=$dp.cal.getP('m');<BR>$dp.$('d523_ss').value=$dp.cal.getP('s');<BR>}<BR><SPAN 
+  class=STYLE1>&lt;/script&gt;</SPAN><BR><BR><SPAN 
+  class=STYLE1>注意:</SPAN>el:'d523'中,如果你不需要d523这个框,你可以把他改成hidden,但是el属性必须指定<BR>$dp.$和$dp.cal.getP都是<A 
+  href="http://www.my97.net/dp/demo/resource/main.asp#m5">内置函数</A> </P></DIV>
+  <LI>onclearing 和 oncleared 事件 <A id=m253 name=m253></A>
+  <DIV>
+  <H4>示例5-3-1 使用onclearing事件取消清空操作</H4>
+  <P><INPUT class=Wdate id=d531 
+  onfocus="WdatePicker({onclearing:function(){if(!confirm('日期框的值为:'+this.value+', 确实要清空吗?'))return true;}})"> 
+  <BR>&lt;input type="text" class="Wdate" id="d531" onFocus="WdatePicker({<SPAN 
+  class=STYLE2>onclearing:</SPAN><SPAN 
+  class=STYLE1>function(){if(!confirm('日期框的值为:'+this.value+', 确实要清空吗?'))return 
+  true;}</SPAN>})"/&gt;<BR><BR><SPAN 
+  class=STYLE1>注意:</SPAN>当onclearing函数返回true时,系统的清空事件将被取消,<BR>函数体里面没有引用$dp,所以函数原型里面可以省略参数dp 
+  </P></DIV>
+  <DIV>
+  <H4>示例5-3-2 使用cal对象取得当前日期所选择的月份(使用了 dp.cal)</H4>
+  <P><INPUT class=Wdate id=d532 
+  onfocus="WdatePicker({oncleared:function(dp){alert('当前日期所选择的月份为:'+dp.cal.date.M);}})"> 
+  <BR>&lt;input type="text" class="Wdate" id="d532" onFocus="WdatePicker({<SPAN 
+  class=STYLE2>oncleared:</SPAN><SPAN 
+  class=STYLE1>function(dp){alert('当前日期所选择的月份为:'+dp.cal.date.M);}</SPAN>})"/&gt;</P></DIV>
+  <DIV>
+  <H4>示例5-3-3 综合使用两个事件</H4>
+  <P><INPUT class=Wdate id=d533 onfocus=d533_focus(this)>
+  <SCRIPT>
+function d533_focus(element){
+var clearingFunc = function(){ if(!confirm('日期框的值为:'+this.value+', 确实要清空吗?')) return true; }
+var clearedFunc = function(){ alert('日期框已被清空'); }
+WdatePicker({el:element,onclearing:clearingFunc,oncleared:clearedFunc})
+}
+</SCRIPT>
+   <BR>&lt;script&gt;<BR>function d533_focus(element){<BR>var clearingFunc = 
+  function(){ if(!confirm('日期框的值为:'+this.value+', 确实要清空吗?')) return true; 
+  }<BR>var clearedFunc = function(){ alert('日期框已被清空'); 
+  }<BR>WdatePicker({el:element,onclearing:clearingFunc,oncleared:clearedFunc})<BR>}<BR>&lt;/script&gt;<BR>&lt;input 
+  type="text" class="Wdate" id="d533" onFocus="<SPAN 
+  class=STYLE1>d533_focus(this)</SPAN>"/&gt;</P></DIV></LI></OL>
+<H3>6. 快速选择功能 <A id=m26 name=m26></A></H3>
+<P 
+style="MARGIN-LEFT: 20px">此功能允许指定5个最常用的日期,可以方便用户选择,如果不指定,系统将自动生成<BR>相关属性:<BR><SPAN 
+class=STYLE2>qsEnabled</SPAN> 是否启用快速选择功能 <BR><SPAN class=STYLE2>quickSel</SPAN> 
+快速选择数据,可以传入5个快速选择日期,日期格式同min/maxDate<BR><BR><SPAN 
+class=STYLE1>注意:<BR></SPAN>日期格式必须与 realDateFmt realTimeFmt 
+相匹配<BR>除了使用静态的日期值以外,还可以使用动态参数(如:%y,%M分别表示当前年和月)<BR></P>
+<DIV style="MARGIN-LEFT: 20px">
+<H4>示例6-1 传入2个静态日期</H4>
+<P><INPUT class=Wdate 
+onfocus="WdatePicker({dateFmt:'yyyy年MM月dd日',qsEnabled:true,quickSel:['2000-1-10','2000-2-20']})"> 
+<BR>&lt;input class="Wdate" type="text" 
+onfocus="WdatePicker({dateFmt:'yyyy年MM月dd日',<SPAN 
+class=STYLE2>qsEnabled:</SPAN><SPAN class=STYLE1>true</SPAN>,<SPAN 
+class=STYLE2>quickSel:</SPAN><SPAN 
+class=STYLE1>['2000-1-10','2000-2-20']</SPAN>})"/&gt;<BR><BR><SPAN 
+class=STYLE1>注意:</SPAN>当传入的数据不足5个时,系统将自动补全</P></DIV>
+<DIV style="MARGIN-LEFT: 20px">
+<H4>示例6-2 传入2个动态日期,1个静态日期</H4>
+<P><INPUT class=Wdate 
+onfocus="WdatePicker({dateFmt:'yyyy年MM月dd日',qsEnabled:true,quickSel:['2000-10-01','%y-%M-01','%y-%M-%ld']})"> 
+<BR>&lt;input type="text" class="Wdate" 
+onFocus="WdatePicker({dateFmt:'yyyy年MM月dd日',<SPAN 
+class=STYLE2>qsEnabled:</SPAN><SPAN class=STYLE1>true</SPAN>,<SPAN 
+class=STYLE2>quickSel:</SPAN><SPAN 
+class=STYLE1>['2000-10-01','%y-%M-01','%y-%M-%ld']</SPAN>})"/&gt;<BR><BR><SPAN 
+class=STYLE1>注意:</SPAN>当传入的数据不足5个时,系统将自动补全</P></DIV>
+<H2>三. 配置说明<A id=m3 name=m3></A></H2>
+<H3>1. 属性配置<A id=m31 name=m31></A></H3>
+<OL>
+  <LI>属性表<A id=m311 name=m311></A> 
+  <TABLE cellSpacing=1 cellPadding=3 width="100%" bgColor=#000000 border=0>
+    <TBODY>
+    <TR>
+      <TH>属性</TH>
+      <TH>类型</TH>
+      <TH>默认值</TH>
+      <TH>说明</TH></TR>
+    <TR>
+      <TD colSpan=4>静态属性:只能在WdatePicker.js中配置,一般情况下,不建议您修改静态属性的值</TD></TR>
+    <TR>
+      <TD align=middle>$wdate</TD>
+      <TD align=middle>bool</TD>
+      <TD align=middle>true</TD>
+      <TD>是否自动引入Wdate类 设置为true时,可直接在引入WdatePicker.js的页面里使用 class="Wdate" 
+        <BR>Wdate可在skin目录下的WdatePicker.css文件中定义<BR><SPAN 
+        class=STYLE2>建议使用默认值</SPAN></TD></TR>
+    <TR>
+      <TD align=middle>$dpPath</TD>
+      <TD align=middle>string</TD>
+      <TD align=middle>''</TD>
+      <TD>是否显示指定程序包的绝对位置,一般情况下为空即可(程序自动创建),该属性是为防止极其少数的情况下程序创建出错而设置的<BR>设置方法:<BR>如果,程序包所在http中的地址为 
+        http://localhost/proName/My97DatePicker/<BR>则 $dpPath = 
+        '/proName/My97DatePicker/';<BR><SPAN class=STYLE2>建议使用默认值</SPAN></TD></TR>
+    <TR>
+      <TD colSpan=4>可配置属性:可以在WdatePicker方法是配置</TD></TR>
+    <TR>
+      <TD align=middle>el</TD>
+      <TD align=middle>Element 或 String</TD>
+      <TD align=middle>null</TD>
+      <TD>指定一个控件或控件的ID,必须具有value或innerHTML属性(如input,textarea,span,div,p等标签都可以),用户存储日期显示值(也就是dateFmt格式化后的值)</TD></TR>
+    <TR>
+      <TD align=middle>vel</TD>
+      <TD align=middle>Element 或 String</TD>
+      <TD align=middle>null</TD>
+      <TD>指定一个控件或控件的ID,必须具有value属性(如input),用于存储真实值(也就是realDateFmt和realTimeFmt格式化后的值)</TD></TR>
+    <TR>
+      <TD align=middle>position</TD>
+      <TD align=middle>object</TD>
+      <TD align=middle>{}</TD>
+      <TD>日期选择框显示位置<BR><SPAN 
+        class=STYLE2>注意:坐标默认单位是px,是相对当前框架坐标(不受滚动条),left属性只接受数字,top属性除接受数字外还可以接受 
+        'above' 上方显示, 'under' 下方显示, 'auto' 
+        系统根据页面大小自动选择(默认)</SPAN><BR>如:<BR>{left:100,top:50}表示固定坐标[100,50]<BR>{top:50}表示横坐标自动生成,纵坐标指定为 
+        50<BR>{left:100}表示纵坐标自动生成,横坐标指定为 
+        100<BR>{top:'above'}表示上方显示<BR>{top:'under'}表示下方显示<BR>请参考示例</TD></TR>
+    <TR>
+      <TD align=middle>lang</TD>
+      <TD align=middle>string</TD>
+      <TD align=middle>'auto'</TD>
+      <TD>当值为'auto'时 自动根据客户端浏览器的语言自动选择语言<BR>当值为 其他 时 从langList中选择对应的语言 
+        <BR>你可以参考<A 
+        href="http://www.my97.net/dp/demo/resource/main.asp#m32">语言配置</A></TD></TR>
+    <TR>
+      <TD align=middle>skin</TD>
+      <TD align=middle>string</TD>
+      <TD align=middle>'default'</TD>
+      <TD>皮肤名称 默认自带 default和whyGreen两个皮肤<BR>另外如果你的css够强的话,可以自己做皮肤<BR>你可以参考<A 
+        href="http://www.my97.net/dp/demo/resource/main.asp#m33">皮肤配置</A></TD></TR>
+    <TR>
+      <TD align=middle>dateFmt</TD>
+      <TD align=middle>string</TD>
+      <TD align=middle>'yyyy-MM-dd'</TD>
+      <TD>日期显示格式<BR>你可以参考<A 
+        href="http://www.my97.net/dp/demo/resource/main.asp#m224">自定义格式</A></TD></TR>
+    <TR>
+      <TD align=middle>realDateFmt</TD>
+      <TD align=middle>string</TD>
+      <TD align=middle>'yyyy-MM-dd'</TD>
+      <TD rowSpan=3>计算机可识别的,真正的日期格式<BR><SPAN 
+        class=STYLE2>无效日期设置(disabledDates),最大日期(maxDate),最小日期(minDate)以及快速日期都必须与它们相匹配<BR>建议使用默认值</SPAN></TD></TR>
+    <TR>
+      <TD align=middle>realTimeFmt</TD>
+      <TD align=middle>string</TD>
+      <TD align=middle>'HH:mm:ss'</TD></TR>
+    <TR>
+      <TD align=middle>realFullFmt</TD>
+      <TD align=middle>string</TD>
+      <TD align=middle>'%Date %Time'</TD></TR>
+    <TR>
+      <TD align=middle>minDate</TD>
+      <TD align=middle>string</TD>
+      <TD align=middle>'1900-01-01 00:00:00'</TD>
+      <TD>最小日期(注意要与上面的real日期相匹配)</TD></TR>
+    <TR>
+      <TD align=middle>maxDate</TD>
+      <TD align=middle>string</TD>
+      <TD align=middle>'2099-12-31 23:59:59'</TD>
+      <TD>最大日期(注意要与上面的real日期相匹配)</TD></TR>
+    <TR>
+      <TD align=middle>startDate</TD>
+      <TD align=middle>string</TD>
+      <TD align=middle>''</TD>
+      <TD>起始日期,既点击日期框时显示的起始日期<BR>为空时,使用今天作为起始日期(默认值)<BR>否则使用传入的日期作为起始日期(注意要与上面的real日期相匹配)<BR>你可以参考<A 
+        href="http://www.my97.net/dp/demo/resource/main.asp#m223">起始日期示例</A></TD></TR>
+    <TR>
+      <TD align=middle>isShowWeek</TD>
+      <TD align=middle>bool</TD>
+      <TD align=middle>false</TD>
+      <TD>是否显示周<BR>你可以参考<A 
+        href="http://www.my97.net/dp/demo/resource/main.asp#m213">周显示示例</A></TD></TR>
+    <TR>
+      <TD align=middle>highLineWeekDay</TD>
+      <TD align=middle>bool</TD>
+      <TD align=middle>true</TD>
+      <TD>是否高亮显示 周六 周日</TD></TR>
+    <TR>
+      <TD align=middle>isShowClear</TD>
+      <TD align=middle>bool</TD>
+      <TD align=middle>true</TD>
+      <TD>是否显示清空按钮</TD></TR>
+    <TR>
+      <TD align=middle>isShowToday</TD>
+      <TD align=middle>bool</TD>
+      <TD align=middle>true</TD>
+      <TD>是否显示今天按钮</TD></TR>
+    <TR>
+      <TD align=middle>isShowOthers</TD>
+      <TD align=middle>bool</TD>
+      <TD align=middle>true</TD>
+      <TD>为true时,第一行空白处显示上月的日期，末行空白处显示下月的日期,否则不显示</TD></TR>
+    <TR>
+      <TD align=middle>readOnly</TD>
+      <TD align=middle>bool</TD>
+      <TD align=middle>false</TD>
+      <TD>是否只读</TD></TR>
+    <TR>
+      <TD align=middle>errDealMode</TD>
+      <TD align=middle>int</TD>
+      <TD align=middle>0</TD>
+      <TD>纠错模式设置 可设置3中模式 0 - 提示 1 - 自动纠错 2 - 标记</TD></TR>
+    <TR>
+      <TD align=middle>autoPickDate</TD>
+      <TD align=middle>bool</TD>
+      <TD align=middle>null</TD>
+      <TD>为false时 点日期的时候不自动输入,而是要通过确定才能输入<BR>为true时 
+        即点击日期即可返回日期值<BR>为null时(推荐使用) 如果有时间置为false 否则置为true</TD></TR>
+    <TR>
+      <TD align=middle>qsEnabled</TD>
+      <TD align=middle>bool</TD>
+      <TD align=middle>true</TD>
+      <TD>是否启用快速选择功能</TD></TR>
+    <TR>
+      <TD align=middle>quickSel</TD>
+      <TD align=middle>Array</TD>
+      <TD align=middle>null</TD>
+      <TD>快速选择数据,可以传入5个快速选择日期<BR>注意:日期格式必须与 realDateFmt realTimeFmt 
+        realFullFmt 相匹配<BR>你可以参考<A 
+        href="http://www.my97.net/dp/demo/resource/main.asp#m26">快速选择示例</A></TD></TR>
+    <TR>
+      <TD align=middle>disabledDays</TD>
+      <TD align=middle>Array</TD>
+      <TD align=middle>null</TD>
+      <TD>可以使用此功能禁用周日至周六所对应的日期<BR>0至6 分别代表 周日至周六<BR>你可以参考<A 
+        href="http://www.my97.net/dp/demo/resource/main.asp#m244">无效天示例</A></TD></TR>
+    <TR>
+      <TD align=middle>disabledDates</TD>
+      <TD align=middle>Array</TD>
+      <TD align=middle>null</TD>
+      <TD>可以使用此功能禁用所指定的一个或多个日期<BR>你可以参考<A 
+        href="http://www.my97.net/dp/demo/resource/main.asp#m245">无效日期示例</A></TD></TR>
+    <TR>
+      <TD align=middle>opposite</TD>
+      <TD align=middle>bool</TD>
+      <TD align=middle>false</TD>
+      <TD>默认为false, 为true时,无效天和无效日期变成有效天和有效日期 <BR>你可以参考<A 
+        href="http://www.my97.net/dp/demo/resource/main.asp#m246">有效天与有效日期示例</A></TD></TR>
+    <TR>
+      <TD align=middle>onpicking</TD>
+      <TD align=middle>function</TD>
+      <TD align=middle>null</TD>
+      <TD rowSpan=4>此四个参数为事件参数<BR>你可以参考<A 
+        href="http://www.my97.net/dp/demo/resource/main.asp#m25">自定义事件示例</A></TD></TR>
+    <TR>
+      <TD align=middle>onpicked</TD>
+      <TD align=middle>function</TD>
+      <TD align=middle>null</TD></TR>
+    <TR>
+      <TD align=middle>onclearing</TD>
+      <TD align=middle>function</TD>
+      <TD align=middle>null</TD></TR>
+    <TR>
+      <TD align=middle>oncleared</TD>
+      <TD align=middle>function</TD>
+      <TD align=middle>null</TD></TR></TBODY></TABLE>
+  <LI>配置全局默认值<A id=m312 name=m312></A> 
+  <P>通过配置WdatePicker.js的属性可以避免每次调用都传入配置值,为变成带来很多方便.<BR>在默认情况下My97为每个属性都配置了默认值,这些默认值都可以在WdatePicker.js中修改的<BR>你可以根据你个人的喜好更改这些值<BR><BR>比如你比较不喜欢默认的皮肤default 
+  而更喜欢 whyGreen 这个皮肤,<BR>你可以直接在WdatePicker.js把skin值改为 whyGreen<BR>这样,你就<SPAN 
+  class=STYLE2>不必每次调用控件的时候都传入</SPAN> skin:'whyGreen' 了<BR>你学会了吗?</P>
+  <LI>配置单个控件<A id=m313 name=m313></A> 
+  <P>在控件里面你可以使用 onfocus 或 onclick 
+  事件来调用WdatePicker函数来触发日期控件<BR>WdatePicker({})其中{}中的内容都是只对当前实例有效,你可以任意配置属性表里有的所有属性<BR>你可以随意的组合这些属性,达到你的需求<BR>My97日期控件在这方面是做得非常灵活的.</P>
+  <LI>多套配置快速切换<A id=m314 name=m314></A> 
+  <P>您可以设置多个WdatePicker.js文件,如 
+  cn_WdatePicker.js,en_WdatePicker.js,simple_WdatePicker.js等<BR>在不同的页面引入不同的 
+  WdatePicker.js 达到配置快速切换的目的.<BR><SPAN class=STYLE1>注意:文件必须以 
+  _WdatePicker.js(大小写不限制) 为后缀,形如 
+&lt;yourname&gt;_WdatePicker.js</SPAN></P></LI></OL>
+<H3>2. 语言配置<A id=m32 name=m32></A> </H3>
+<OL>
+  <LI>语言列表<A id=m321 name=m321></A>
+  <P>My97DatePicker目录下有个config.js,里面有段代码: <BR>var <SPAN 
+  class=STYLE1>langList</SPAN> = <BR>[<BR>{<SPAN class=STYLE2>name:</SPAN><SPAN 
+  class=STYLE1>'en'</SPAN>, <SPAN class=STYLE2>charset:</SPAN><SPAN 
+  class=STYLE1>'UTF-8'</SPAN>},<BR>{name:'zh-cn', 
+  charset:'gb2312'},<BR>{name:'zh-tw', 
+  charset:'GBK'}<BR>];<BR><BR>这就是语言列表,每个项有name和charset两个属性.<BR>name 
+  表示语言的名称(必须与浏览器的语言字符串命名相同),在配置的时候,<SPAN 
+  class=STYLE2>lang属性只能是配置列表里面已有的项,否则将自动返回第一项</SPAN><BR>charset 
+  表示对应语言目录下的js文件所对应的编码格式</P>
+  <LI>语言安装说明<A id=m322 name=m322></A> 
+  <P>分两步轻松实现:<BR>1 将语言文件拷贝到 lang 目录<BR>2 打开 config.js 配置语言列表</P></LI></OL>
+<H3>3. 皮肤配置<A id=m33 name=m33></A></H3>
+<OL>
+  <LI>皮肤列表<A id=m331 name=m331></A> 
+  <P>My97DatePicker目录下有个config.js,里面有段代码: <BR>var <SPAN 
+  class=STYLE1>skinList</SPAN> = <BR>[<BR>{<SPAN class=STYLE2>name:</SPAN><SPAN 
+  class=STYLE1>'default'</SPAN>, <SPAN class=STYLE2>charset:</SPAN><SPAN 
+  class=STYLE1>'gb2312'</SPAN>},<BR>{name:'whyGreen', 
+  charset:'gb2312'},<BR>{name:'blue', charset:'gb2312'},<BR>{name:'simple', 
+  charset:'gb2312'} <BR>];<BR><BR>这就是皮肤列表,每个项有name和charset两个属性.<BR>name 
+  表示皮肤的名称,在配置的时候,<SPAN 
+  class=STYLE2>skin属性只能是配置列表里面已有的项,否则将自动返回第一项</SPAN><BR>charset 
+  表示对应皮肤目录下的css文件:datepicker.css所对应的编码格式</P>
+  <LI>皮肤安装说明<A id=m332 name=m332></A>
+  <P>分两步轻松实现:<BR>1 将皮肤文件包拷贝到 skin 目录<BR>2 打开 config.js 配置皮肤列表 
+  <BR><BR>注意:安装过多的皮肤会影响效率,一般5个以下比较适宜</P></LI></OL>
+<H2>四. 如何使用<A id=m4 name=m4></A></H2>
+<P style="MARGIN-LEFT: 20px">1. 在使用该日期控件的文件中加入JS库<SPAN 
+class=STYLE2>(仅这一个文件即可,其他文件会自动引入,请勿删除或改名)</SPAN>, 代码如下 &lt;script 
+language="javascript" type="text/javascript" 
+src="datepicker/WdatePicker.js"&gt;&lt;/script&gt;<BR>注:<SPAN 
+class=STYLE2>src="datepicker/WdatePicker.js"</SPAN> 请根据你的实际情况改变路径<BR><BR>2. 
+加上主调函数 WdatePicker<BR>关于 WdatePicker 的用法:<SPAN 
+class=STYLE2><BR><BR>如果您是新手,对js还不是很了解的话</SPAN><SPAN 
+class=STYLE1>一定要多看看这份文档</SPAN><BR>基本上每一个演示的示例下面都有相关代码,并且 <SPAN 
+class=STYLE2>关键属性用蓝字标出</SPAN>,<SPAN class=STYLE1>关键值用红字标出</SPAN> 应该很容易看明白 
+<BR><BR><SPAN 
+class=STYLE2>如果您有一定的水准<BR></SPAN>希望能从头到尾把功能介绍好好看一遍,这样大部分功能你都会用了<BR><BR><SPAN 
+class=STYLE2>如果您是高手</SPAN><BR>建议您通读配置说明和内置函数</P>
+<H2>五. 内置函数<A id=m5 name=m5></A></H2>
+<TABLE cellSpacing=1 cellPadding=3 width="100%" bgColor=#000000 border=0>
+  <TBODY>
+  <TR>
+    <TH>函数名</TH>
+    <TH>返回值类型</TH>
+    <TH>作用域</TH>
+    <TH>参数</TH>
+    <TH>描述</TH></TR>
+  <TR>
+    <TD align=middle>$dp.$</TD>
+    <TD align=middle>Element</TD>
+    <TD align=middle>全局</TD>
+    <TD><SPAN class=STYLE2>el [string]:</SPAN> 对象的ID</TD>
+    <TD>相当于document.getElementById<BR><SPAN class=STYLE2>参考 示例 1-1-2</SPAN> 
+  </TD></TR>
+  <TR>
+    <TD align=middle>$dp.show</TD>
+    <TD align=middle>void</TD>
+    <TD align=middle>全局</TD>
+    <TD>无</TD>
+    <TD>显示日期选择框</TD></TR>
+  <TR>
+    <TD align=middle>$dp.hide</TD>
+    <TD align=middle>void</TD>
+    <TD align=middle>全局</TD>
+    <TD>无</TD>
+    <TD>隐藏日期选择框</TD></TR>
+  <TR>
+    <TD align=middle>$dp.$D</TD>
+    <TD align=middle>String</TD>
+    <TD align=middle>全局</TD>
+    <TD><SPAN class=STYLE2>id [string]:</SPAN> 对象的ID <BR><SPAN 
+      class=STYLE2>arg [object]:</SPAN> 
+      日期差量,可以设置成<BR>{y:[值],M:[值],d:[值],H:[值],m:[值],s:[值]}<BR>属性 y,M,d,H,m,s 分别代表 
+      年月日时分秒<BR>{M:3,d:7} 表示 3个月零7天<BR>{d:1,H:1} 表示1天多1小时</TD>
+    <TD>将id对应的日期框中的日期字符串,加上定义的日期差量,返回使用real格式化后的日期串<BR><SPAN class=STYLE2>参考 
+      示例 4-3-2</SPAN></TD></TR>
+  <TR>
+    <TD align=middle>$dp.$DV</TD>
+    <TD align=middle>String</TD>
+    <TD align=middle>全局</TD>
+    <TD><SPAN class=STYLE2>v [string]:</SPAN> 日期字符串<BR><SPAN class=STYLE2>arg 
+      [object]:</SPAN> 同上例的arg </TD>
+    <TD>将传入的日期字符串,加上定义的日期差量,返回使用real格式化后的日期串<BR><SPAN class=STYLE2>参考 示例 
+      4-3-3</SPAN></TD></TR>
+  <TR>
+    <TD colSpan=5>以下函数只在事件自定义函数中有效</TD></TR>
+  <TR>
+    <TD align=middle>$dp.cal.getP</TD>
+    <TD align=middle>String</TD>
+    <TD align=middle>事件function</TD>
+    <TD><SPAN class=STYLE2>p [string]:</SPAN> 属性名称 
+      yMdHmswWD分别代表年,月,日,时,分,秒,星期(0-6),周(1-52),星期(一-六) <BR><SPAN class=STYLE2>f 
+      [string]:</SPAN> format 格式字符串<BR>设置方法参考 <SPAN class=STYLE2>1.4 
+    自定义格式</SPAN></TD>
+    <TD>返回所指定属性被格式字符串格式化后的值[单属性]<BR><SPAN class=STYLE2>参考 示例 
+1-2-2</SPAN></TD></TR>
+  <TR>
+    <TD align=middle>dp.cal.getDateStr</TD>
+    <TD align=middle>String </TD>
+    <TD align=middle>事件function</TD>
+    <TD><SPAN class=STYLE2>f [string]:</SPAN> 格式字符串,为空时使用dateFmt<BR></TD>
+    <TD>返回所指定属性被格式字符串格式化后的值[整个值]</TD></TR>
+  <TR>
+    <TD align=middle>完善中</TD>
+    <TD align=middle>完善中</TD>
+    <TD align=middle>完善中</TD>
+    <TD>完善中</TD>
+    <TD>完善中</TD></TR></TBODY></TABLE> 
+</DIV></BODY></HTML>

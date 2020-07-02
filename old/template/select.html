@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择框</title>
+    <link rel="stylesheet" type="text/css" href="../../common/elemnetUI/index.css">
+    <link rel="stylesheet" type="text/css" href="../../common/highlight/style.css">
+    <link rel="stylesheet" type="text/css" href="../common/base.css">
+    <style>
+        body{
+            padding: 10px;
+            background: #FFF;
+        }
+        h1{
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 40px;
+        }
+        h2{
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 35px;
+        }
+        .box{  
+           border: 1px solid #ebebeb;
+           border-radius: 3px;
+        }
+        .box-case{
+            height: 40px;
+            padding: 10px;
+            border-bottom: 1px solid #ebebeb;
+        }
+        .box-btn{
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .box-code{
+            padding: 10px;
+            border-bottom: 1px solid #ebebeb;
+        }
+        .code{
+            opacity: .69;
+        }
+        a{text-decoration:none; color:#32a6c8;cursor:pointer;outline:none;}
+        a:hover{color:#f05f33;text-decoration:none;}
+        .select{
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <template>
+        <div class="step">
+            <h1>一、安装</h1>
+            <p>首先在页面上引入 公共css 文件，<a href="../common/base.css" download="">下载文件</a></p>
+            <pre><code class="language-html" v-html="installCSS"></code></pre>
+            <p>JS需要引入JQuery和公共组件插件</p>
+            <pre><code class="language-html" v-html="installJS"></code></pre>
+        </div>
+        <div class="step">
+            <h1>二、示例</h1>
+            <h2>1、单选框</h2>
+            <div class="step">
+                <div class="box">
+                    <div class="box-case">
+                        <div class="select">
+                            <div id="select"></div>
+                        </div>
+                        <button class="blueBtn" @click="initSelect()">初始化</button>
+                        <button class="blueBtn" @click="getSelectValue()">取值</button>
+                        <button class="blueBtn" @click="setSelectValue()">赋值</button>
+                    </div>   
+                    <transition name="el-zoom-in-top">
+                    <div class="box-code" v-show="selectShow">
+                        <span>html</span>
+                        <pre><code class="language-html" v-html="selectHtml"></code></pre>
+                        <span>js</span>
+                        <pre><code class="language-js" v-html="selectJs"></code></pre>
+                    </div>
+                    </transition> 
+                    <div class="box-btn">
+                        <a @click="selectShow = !selectShow">
+                            <i :class="{'el-icon-caret-top':!selectShow,'el-icon-caret-bottom':selectShow}"></i> 
+                            {{selectShow ? '收起源码' : '查看源码'}}
+                        </a>
+                    </div> 
+                </div>
+            </div>
+            <h2>2、多选框</h2>
+            <div class="step">
+                <div class="box">
+                    <div class="box-case">
+                        <div class="select">
+                            <div id="selects"></div>
+                        </div>
+                        <button class="blueBtn" @click="initSelects()">初始化</button>
+                        <button class="blueBtn" @click="getSelectsValue()">取值</button>
+                        <button class="blueBtn" @click="setSelectsValue()">赋值</button>
+                    </div>   
+                    <transition name="el-zoom-in-top">
+                    <div class="box-code" v-show="selectsShow">
+                        <span>html</span>
+                        <pre><code class="language-html" v-html="selectsHtml"></code></pre>
+                        <span>js</span>
+                        <pre><code class="language-js" v-html="selectsJs"></code></pre>
+                    </div>
+                    </transition> 
+                    <div class="box-btn">
+                        <a @click="selectsShow = !selectsShow">
+                            <i :class="{'el-icon-caret-top':!selectsShow,'el-icon-caret-bottom':selectsShow}"></i> 
+                            {{selectsShow ? '收起源码' : '查看源码'}}
+                        </a>
+                    </div> 
+                </div>
+            </div>
+        </div>
+        <div class="step">
+            <h1>三、参数说明</h1>
+            <div class="param-table">
+                <el-table :data="tableData"style="width: 100%">
+                    <el-table-column prop="name" label="参数" width="180"></el-table-column>
+                    <el-table-column prop="remake" label="说明"></el-table-column>
+                    <el-table-column prop="type" label="类型" width="180"></el-table-column>
+                    <el-table-column prop="optional" label="可选值" width="180"></el-table-column>
+                    <el-table-column prop="default" label="默认值" width="180"></el-table-column>
+                </el-table>
+            </div>
+        </div>
+    </template>
+    </div>
+    <script type="text/javascript" src="../../common/vue/vue.js"></script>
+    <script type="text/javascript" src="../../common/elemnetUI/index.js"></script>
+    <script type="text/javascript" src="../../common/highlight/prismJS.js"></script>
+    <script type="text/javascript" src="../common/jquery-1.7.1.js"></script>
+    <script type="text/javascript" src="../common/jquery.jqtransform.js"></script>
+    <script type="text/javascript" src="../common/select.js"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data(){
+                return{
+                    tableData:[
+                        {name:"isMulti",remake:"是否为复选框",type:"boolean",optional:"true/false",default:"false"},
+                        {name:"showTip",remake:`下拉选项是否显示title提示，文字内容太长时建议显示`,type:"boolean",optional:"true/false",default:"true"},
+                        {name:"datas",remake:`选择框数据 [{id:"XX",text:"XX"}]`,type:"Array",optional:"--",default:"--"},
+                        {name:"id",remake:`datas数据中隐式值字段名, 默认取"id"字段 必须与datas保持一致`,type:"String",optional:"--",default:"id"},
+                        {name:"text",remake:`datas数据中显示文本字段名,默认取"text"字段 必须与datas保持一致`,type:"String",optional:"--",default:"text"},
+                        {name:"onChange",remake:`function(obj){}, //所选值发生变化事件,返回{id:"",text:""}`,type:"function",optional:"--",default:"--"},
+                        {name:"isShowSelectBtn",remake:`是否显示下拉按钮，1是，0否`,type:"Number",optional:"0/1",default:"1"},
+                        {name:"placeholder",remake:`自定义默认提示语`,type:"String",optional:"--",default:"请选择"},
+                        {name:"clear",remake:`开放清空按钮，0不开放，1开放`,type:"Number",optional:"0/1",default:"1"},
+                        {name:"onClean",remake:`function, //点击"X"清空按钮事件`,type:"Number",optional:"--",default:"24"},
+                        {name:"width",remake:`下拉div的宽度设置，如100，只有在此值大于文本框宽度时才生效，默认以文本框宽度为准`,type:"Number",optional:"--",default:"--"},
+                        {name:"height",remake:`下拉div的最大高度设置，如200`,type:"Number",optional:"--",default:"170"},
+                        {name:"disabled",remake:`只读，禁操作`,type:"boolean",optional:"true/false",default:"false"},
+                        {name:"search",remake:`实时搜索，默认关闭`,type:"boolean",optional:"true/false",default:"false"},
+                    ],
+                    selectShow:false,
+                    selectsShow:false,
+                    onOffShow:false,
+                    classData:[{id:01,text:"高等数学"},{id:02,text:"计算机基础"},{id:03,text:"JAVA程序设计"}],
+                    onOff:[{value:1,data:'开',color:'green'},{value:0,data:'关',color:'red'}],
+                    //安装代码
+                    installCSS:`&lt;link rel="stylesheet" type="text/css" href="../common/base.css"&gt;` ,
+                    installJS:`&lt;script type=&quot;text/javascript&quot; src=&quot;../common/jquery-1.7.1.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;../common/jquery.jqtransform.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;../common/select.js&quot;&gt;&lt;/script&gt;` ,
+                    //示例
+                    selectHtml:`&lt;div class=&quot;select&quot;&gt;
+	&lt;div id=&quot;select&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;`,
+                    selectJs:`var data = [{id:01,name:"高等数学"},{id:02,name:"计算机基础"},{id:03,name:"JAVA程序设计"}];
+
+/**初始化单选框*/
+$("#select").select({isMulti:false, datas:data});
+
+/**设置值*/
+$("#select").select("setValue",{id:3});
+
+/**获取值*/
+var value = $("#select").select("getValue");`,
+                    selectsHtml:`&lt;div class=&quot;select&quot;&gt;
+	&lt;div id=&quot;selects&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;`,
+                    selectsJs:`var data = [{id:01,name:"高等数学"},{id:02,name:"计算机基础"},{id:03,name:"JAVA程序设计"}];
+
+/**初始化多选*/
+$("#selects").select({isMulti:true, datas:data});
+
+/**设置多选按钮*/
+$("#selects").select("setValue",{id:"2,3"});
+
+/**获取多选按钮值*/
+var value = $("#selects").select("getValue");`,
+                }
+            },
+            methods:{
+                /**初始化单选*/
+                initSelect(){
+                    $("#select").select({isMulti:false, datas:this.classData});
+                    this.$notify({title: '成功',message: '单选框初始化成功',type: 'success'});
+                },
+                /**获取单选按钮值*/
+                getSelectValue(){
+                    var value = $("#select").select("getValue");
+                    value = JSON.stringify(value); 
+                    this.$alert(`获取值为：\n${value}`, '提示');
+                },
+                /**设置单选按钮*/
+                setSelectValue(){
+                    $("#select").select("setValue",{id:3});
+                    this.$notify({title: '成功',message: '单选框赋值成功',type: 'success'});
+                },
+                /**初始化单选*/
+                initSelects(){
+                    $("#selects").select({isMulti:true,datas:this.classData});
+                    this.$notify({title: '成功',message: '多选框初始化成功',type: 'success'});
+                },
+                /**获取单选按钮值*/
+                getSelectsValue(){
+                    var value = $("#selects").select("getValue");
+                    value = JSON.stringify(value); 
+                    this.$alert(`获取值为：\n${value}`, '提示');
+                },
+                /**设置单选按钮*/
+                setSelectsValue(){
+                    $("#selects").select("setValue",{id:"2,3"});
+                    this.$notify({title: '成功',message: '多选框赋值成功',type: 'success'});
+                },
+            },
+            mounted(){
+            }  
+        });
+    </script>
+</body>
+</html>
